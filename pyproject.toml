@@ -1,13 +1,11 @@
 [project]
 name = "tracebale"
 version = "0.1.0"
-description = "Segment an image into components and recognise which component each segment is"
+description = "Segment an image (Segment Anything) and recognise which component each segment is (CLIP zero-shot)."
 requires-python = ">=3.9"
-dependencies = ["numpy", "pillow"]
+dependencies = ["numpy", "pillow", "torch", "transformers"]
 
 [project.optional-dependencies]
-sam = ["segment-anything", "torch", "opencv-python"]
-clip = ["transformers", "torch"]
 test = ["pytest"]
 
 [project.scripts]

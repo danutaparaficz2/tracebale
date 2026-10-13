@@ -1,7 +1,3 @@
 __pycache__/
 *.egg-info/
-Images/
-Images.zip
-.DS_Store
-.vscode/
 .pytest_cache/
