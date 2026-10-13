@@ -1,0 +1,17 @@
+[project]
+name = "tracebale"
+version = "0.1.0"
+description = "Segment an image into components and recognise which component each segment is"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pillow"]
+
+[project.optional-dependencies]
+sam = ["segment-anything", "torch", "opencv-python"]
+clip = ["transformers", "torch"]
+test = ["pytest"]
+
+[project.scripts]
+tracebale = "tracebale.cli:main"
+
+[tool.setuptools]
+packages = ["tracebale"]
