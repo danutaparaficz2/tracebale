@@ -1,18 +1,23 @@
 # tracebale
-Analyses images with Segment Anything (or a lightweight fallback) to recognise which components appear in a picture.
+Analyses an image and recognises which component each region is.
 
-Pipeline: **segment** the image into masks, then **classify** each cropped mask.
+Pipeline: **Segment Anything (SAM)** proposes masks → each masked crop is classified
+zero-shot with **CLIP** against a list of component names you provide.
 
-- Segmenters: `SamSegmenter` (extra `sam`, needs a SAM checkpoint), `ColorRegionSegmenter` (no ML deps).
-- Classifiers: `ClipClassifier` (extra `clip`, zero-shot from your label list), `ReferenceClassifier` (mean-colour nearest reference).
-
-```python
-from tracebale import SamSegmenter, ClipClassifier, ComponentRecognizer
-rec = ComponentRecognizer(SamSegmenter("sam_vit_b.pth"), ClipClassifier(["resistor", "capacitor", "chip"]), min_area=100)
-for c in rec.recognize("board.jpg"):
-    print(c.label, c.score, c.bbox)
+```
+pip install -e .
+tracebale board.jpg --labels "resistor,capacitor,microchip,connector" --out annotated.png
 ```
 
-CLI: `tracebale board.jpg --labels resistor,capacitor,chip --sam-checkpoint sam_vit_b.pth`
+Output is JSON (label, score, box, area per segment); `--out` saves an annotated image.
+Models download from Hugging Face on first run (`--sam-model`, `--clip-model` to change).
 
-Tests: `pip install -e .[test] && pytest`
+Python:
+```python
+from PIL import Image
+from tracebale import ComponentRecognizer
+rec = ComponentRecognizer(["resistor", "capacitor"])
+dets = rec.recognize(Image.open("board.jpg"))
+```
+
+Tests: `pip install pytest numpy pillow && pytest` (pure-logic tests need no models).
