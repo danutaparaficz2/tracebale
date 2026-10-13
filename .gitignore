@@ -5,3 +5,4 @@ Images.zip
 .DS_Store
 .vscode/
 .pytest_cache/
+output/models/
