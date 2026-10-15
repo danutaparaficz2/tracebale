@@ -1,7 +1,57 @@
+from pathlib import Path
+import subprocess
+import sys
+
 import numpy as np
 from PIL import Image
 
-from tracebale.pipeline import crop_segment, mask_to_box, softmax
+from tracebale import ComponentRecognizer
+from tracebale.pipeline import annotate, crop_segment, mask_to_box, softmax
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tif", ".tiff", ".webp"}
+LABELS = [
+    "door handle",
+    "lock plate",
+    "label sticker",
+    "graffiti",
+    "door",
+    "floor",
+    "wall",
+    "ceiling",
+    "window",
+    "door frame",
+]
+VISUALIZATION_OUTPUT = PROJECT_ROOT / "output" / "test_pipeline.png"
+
+
+def test_pipeline_on_first_image():
+    images = sorted(
+        path for path in (PROJECT_ROOT / "Images").iterdir()
+        if path.is_file() and path.suffix.lower() in IMAGE_SUFFIXES
+    )
+    assert images, "Images directory must contain at least one supported image"
+
+    with Image.open(images[0]) as image:
+        image.thumbnail((1024, 1024))
+        image_size = image.size
+        detections = ComponentRecognizer(
+            LABELS, min_area=2000, min_score=0.3
+        ).recognize(image)
+        annotated = annotate(image, detections)
+        VISUALIZATION_OUTPUT.parent.mkdir(exist_ok=True)
+        annotated.save(VISUALIZATION_OUTPUT)
+        if sys.platform == "darwin":
+            subprocess.Popen(["open", str(VISUALIZATION_OUTPUT)])
+        else:
+            annotated.show()
+
+    assert annotated.size == image_size
+    for detection in detections:
+        assert detection.label in LABELS
+        assert 0.0 <= detection.score <= 1.0
+        assert detection.area > 0
 
 
 def test_mask_to_box():
