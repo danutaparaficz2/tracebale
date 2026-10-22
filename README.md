@@ -12,7 +12,7 @@ only two labels, `door` and `window`, and saves its annotations to
 
 | Input image | AI output (upscaled preview) |
 | --- | --- |
-| <img src="Images/20260504_103344.jpg" alt="Input photo of a room with windows and doors" width="100%"> | <img src="output/20260504_103344.png" alt="AI annotations using only door and window labels" width="300%"> |
+| <img src="Images/20260504_103344.jpg" alt="Input photo of a room with windows and doors" width="50%"> | <img src="output/20260504_103344.png" alt="AI annotations using only door and window labels" width="500%"> |
 
 The output preview is enlarged to the input image's 4000 × 2252 dimensions for
 display; recognition itself runs on a resized 1024 × 577 image.
