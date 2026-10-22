@@ -10,9 +10,12 @@ This example uses `Images/20260504_103344.jpg`. The current run offers the AI
 only two labels, `door` and `window`, and saves its annotations to
 `output/20260504_103344.png`.
 
-| Input image | AI output |
+| Input image | AI output (upscaled preview) |
 | --- | --- |
 | <img src="Images/20260504_103344.jpg" alt="Input photo of a room with windows and doors" width="100%"> | <img src="output/20260504_103344.png" alt="AI annotations using only door and window labels" width="100%"> |
+
+The output preview is enlarged to the input image's 4000 × 2252 dimensions for
+display; recognition itself runs on a resized 1024 × 577 image.
 
 SAM proposes image regions and CLIP assigns each region one of the supplied
 labels. In this example it finds some windows and doors, but also labels parts
