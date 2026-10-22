@@ -1,4 +1,5 @@
-# tracebale
+# TRACEABLE
+
 Analyses an image and recognises which component each region is. The current
 public pipeline does not train or fine-tune a model on the supplied image or
 component labels.
