@@ -3,7 +3,7 @@ name = "tracebale"
 version = "0.1.0"
 description = "Segment an image (Segment Anything) and recognise which component each segment is (CLIP zero-shot)."
 requires-python = ">=3.9"
-dependencies = ["numpy", "pillow", "torch", "transformers"]
+dependencies = ["numpy", "pillow", "pillow-heif", "torch", "torchvision", "transformers"]
 
 [project.optional-dependencies]
 test = ["pytest"]

@@ -3,6 +3,24 @@ Analyses an image and recognises which component each region is. The current
 public pipeline does not train or fine-tune a model on the supplied image or
 component labels.
 
+## Current AI example: doors and windows
+
+This example uses `Images/20260504_103344.jpg`. The current run offers the AI
+only two labels, `door` and `window`, and saves its annotations to
+`output/20260504_103344.png`.
+
+| Input image | AI output |
+| --- | --- |
+| ![Input photo of a room with windows and doors](Images/20260504_103344.jpg) | ![AI annotations using only door and window labels](output/20260504_103344.png) |
+
+SAM proposes image regions and CLIP assigns each region one of the supplied
+labels. In this example it finds some windows and doors, but also labels parts
+of the ceiling, walls, and furniture as doors or windows. Restricting the
+labels limits what names can appear; it does **not** ensure that only real
+doors and windows are marked. The current pipeline has no “neither” option to
+reject unrelated regions, so these results are illustrative and need human
+review rather than being treated as reliable detections.
+
 ## What the code does
 
 The default `ComponentRecognizer` pipeline is:
@@ -66,6 +84,13 @@ The repository also contains `models/sam_vit_b.pth`, but the current
 model ID above. The lower-level `SamSegmenter` class can load a checkpoint
 path explicitly, but that class is not used by the default CLI or the public
 `ComponentRecognizer` pipeline.
+
+## Run the included images
+
+Run `python main.py` to process every supported image in `Images/`. Each
+annotated result is saved to `output/` using the input image's filename and a
+`.png` extension. Pass an image path to process only that image; it uses the
+same filename-based output naming.
 
 ```
 pip install -e .

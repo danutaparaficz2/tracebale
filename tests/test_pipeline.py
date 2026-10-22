@@ -7,6 +7,7 @@ from PIL import Image
 
 from tracebale import ComponentRecognizer
 from tracebale.pipeline import annotate, crop_segment, mask_to_box, softmax
+from main import _find_images, _output_path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +25,23 @@ LABELS = [
     "door frame",
 ]
 VISUALIZATION_OUTPUT = PROJECT_ROOT / "output" / "test_pipeline.png"
+
+
+def test_find_images_includes_supported_extensions(tmp_path):
+    names = ["z.JPG", "a.heic", "m.mpo", "ignore.txt"]
+    for name in names:
+        (tmp_path / name).touch()
+
+    assert [path.name for path in _find_images(tmp_path)] == [
+        "a.heic",
+        "m.mpo",
+        "z.JPG",
+    ]
+
+
+def test_output_path_uses_input_filename():
+    assert _output_path(Path("Images/one.jpg")) == PROJECT_ROOT / "output" / "one.png"
+    assert _output_path(Path("Images/two.jpg")) == PROJECT_ROOT / "output" / "two.png"
 
 
 def test_pipeline_on_first_image():
