@@ -11,7 +11,7 @@ only two labels, `door` and `window`, and saves its annotations to
 
 | Input image | AI output |
 | --- | --- |
-| ![Input photo of a room with windows and doors](Images/20260504_103344.jpg) | ![AI annotations using only door and window labels](output/20260504_103344.png) |
+| <img src="Images/20260504_103344.jpg" alt="Input photo of a room with windows and doors" width="100%"> | <img src="output/20260504_103344.png" alt="AI annotations using only door and window labels" width="100%"> |
 
 SAM proposes image regions and CLIP assigns each region one of the supplied
 labels. In this example it finds some windows and doors, but also labels parts
