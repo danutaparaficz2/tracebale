@@ -1,0 +1,27 @@
+{
+  "audit_summary": {
+    "space_type": "circulation corridor",
+    "overall_condition": "Fair"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Doors & Portals",
+      "item_name": "flush steel fire-rated door leaf",
+      "estimated_materials": ["carbon steel", "mineral core", "paint coating"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["black lever handle", "mortise lock", "strike plate", "door closer (partially visible)"],
+        "labels_or_markings": "Graffiti: 'BAGI CASO' in black marker; two silver certification/label plates on edge (partially obscured, likely fire rating or manufacturer ID)",
+        "connection_type": "hinged"
+      },
+      "deconstruction_notes": "Remove hinges and hardware first. Inspect core for moisture or degradation. Door may require sanding and repainting. Check for lead-based paint if pre-1978. Handle with care to avoid denting.",
+      "bounding_box_2d": [312, 6, 825, 968]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify fire rating label content and core material (possible legacy asbestos-containing core in older buildings).",
+    "Test for lead-based paint on door surface and hardware due to age and graffiti.",
+    "Inspect door frame for mastic or sealant residue that may require hazardous waste handling."
+  ]
+}
