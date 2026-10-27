@@ -1,0 +1,45 @@
+name: Deploy floor plan website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare website
+        run: |
+          mkdir -p _site/floor_plan_assets
+          cp floor_plan.html _site/index.html
+          cp floor_plan_assets/floor-plan.png _site/floor_plan_assets/
+          cp floor_plan_assets/door-204.jpg _site/floor_plan_assets/
+          cp floor_plan_assets/door-204.json _site/floor_plan_assets/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
