@@ -1,0 +1,126 @@
+{
+  "audit_summary": {
+    "space_type": "lecture hall / classroom",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Finishes & Coverings",
+      "item_name": "acoustic ceiling tile grid system",
+      "estimated_materials": ["concrete", "aggregate", "cementitious matrix"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": ["suspended grid hangers", "metal cross-tees"],
+        "labels_or_markings": "no visible manufacturer markings; uniform gray finish with geometric voids",
+        "connection_type": "suspended grid system with wire hangers"
+      },
+      "deconstruction_notes": "Remove tiles carefully to avoid dust; grid system may be reused if structurally sound; test for asbestos if pre-1980s construction",
+      "bounding_box_2d": [0, 0, 999, 412]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Casework & Millwork",
+      "item_name": "wooden classroom tables (rectangular, pedestal base)",
+      "estimated_materials": ["laminate-faced particleboard", "steel pedestal", "powder-coated steel base"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["steel pedestal legs", "adjustable foot glides", "table top edge banding"],
+        "labels_or_markings": "no visible labels; uniform light wood veneer finish",
+        "connection_type": "bolted pedestal to tabletop"
+      },
+      "deconstruction_notes": "Disassemble by removing bolts from pedestal; inspect for warping or delamination; clean and refinish for reuse",
+      "bounding_box_2d": [0, 580, 999, 900]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Casework & Millwork",
+      "item_name": "black office chairs (stackable, metal frame)",
+      "estimated_materials": ["steel frame", "polypropylene shell", "fabric upholstery"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["casters", "gas lift mechanism", "adjustable backrest", "armrests"],
+        "labels_or_markings": "no visible branding; standard institutional design",
+        "connection_type": "welded frame, bolted components"
+      },
+      "deconstruction_notes": "Inspect for broken casters or gas lift; clean upholstery; replace if damaged; stack for transport",
+      "bounding_box_2d": [0, 580, 999, 999]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Finishes & Coverings",
+      "item_name": "parquet flooring (herringbone pattern)",
+      "estimated_materials": ["hardwood", "varnish finish"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["tongue-and-groove joints", "subfloor fasteners"],
+        "labels_or_markings": "no visible labels; consistent grain and finish",
+        "connection_type": "nail-down or glue-down to subfloor"
+      },
+      "deconstruction_notes": "Carefully pry up planks using a floor scraper; avoid chipping; sand and refinish for reuse",
+      "bounding_box_2d": [0, 580, 999, 900]
+    },
+    {
+      "component_id": "comp_05",
+      "category": "Lighting & Fixtures",
+      "item_name": "spherical pendant lights (Bauhaus-style)",
+      "estimated_materials": ["aluminum", "glass diffuser", "electrical wiring"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["ceiling canopy", "suspension cable", "socket base"],
+        "labels_or_markings": "no visible labels; minimalist design",
+        "connection_type": "suspended via cable from ceiling grid"
+      },
+      "deconstruction_notes": "Disconnect electrical supply; remove canopy and cable; inspect for corrosion or damage",
+      "bounding_box_2d": [158, 215, 732, 412]
+    },
+    {
+      "component_id": "comp_06",
+      "category": "Partitions & Enclosures",
+      "item_name": "vertical blinds (window coverings)",
+      "estimated_materials": ["PVC or aluminum slats", "fabric or vinyl tape", "metal headrail"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["headrail brackets", "cord system", "slat connectors"],
+        "labels_or_markings": "no visible branding; white finish",
+        "connection_type": "surface-mounted to window frame"
+      },
+      "deconstruction_notes": "Remove from headrail; clean slats; inspect for warping or discoloration; replace cords if frayed",
+      "bounding_box_2d": [0, 280, 965, 730]
+    },
+    {
+      "component_id": "comp_07",
+      "category": "Art & Decorative Elements",
+      "item_name": "relief sculptures (wall-mounted, plaster or stone)",
+      "estimated_materials": ["plaster", "gypsum", "concrete"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["wall anchors", "mounting brackets"],
+        "labels_or_markings": "no visible labels; classical figures depicted",
+        "connection_type": "surface-mounted with mechanical fasteners"
+      },
+      "deconstruction_notes": "Carefully remove with support; inspect for cracks or flaking; clean and restore if needed",
+      "bounding_box_2d": [180, 445, 235, 600]
+    },
+    {
+      "component_id": "comp_08",
+      "category": "Casework & Millwork",
+      "item_name": "lectern or teacher's desk (wooden, elevated platform)",
+      "estimated_materials": ["solid wood", "steel support frame"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["drawer pulls", "metal legs", "adjustable feet"],
+        "labels_or_markings": "no visible labels; light wood finish",
+        "connection_type": "bolted frame to tabletop"
+      },
+      "deconstruction_notes": "Disassemble by removing bolts; inspect for wood rot or moisture damage; sand and refinish",
+      "bounding_box_2d": [410, 525, 565, 610]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of asbestos in ceiling tiles (pre-1980s construction common); test if necessary",
+    "Inspect adhesive or mastic used in flooring installation for VOCs or hazardous compounds",
+    "Check for lead-based paint on wall-mounted fixtures or sculptures if pre-1978 building",
+    "Assess electrical wiring in pendant lights for insulation degradation or fire risk"
+  ]
+}

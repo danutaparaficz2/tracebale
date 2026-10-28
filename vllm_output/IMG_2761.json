@@ -1,0 +1,95 @@
+{
+  "audit_summary": {
+    "space_type": "interior corridor or office partition zone",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Finishes & Coverings",
+      "item_name": "textured white wall finish (likely painted gypsum board or plaster)",
+      "estimated_materials": ["gypsum", "plaster", "acrylic paint"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "",
+        "connection_type": "adhered to structural frame"
+      },
+      "deconstruction_notes": "Remove drywall or plasterboard carefully to avoid dust; separate metal studs from gypsum core for recycling; inspect for hidden wiring or plumbing before cutting.",
+      "bounding_box_2d": [0, 0, 999, 920]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "MEP Fittings",
+      "item_name": "wall-mounted electrical outlet (Schuko-type, 230V, 16A)",
+      "estimated_materials": ["polycarbonate", "brass", "copper"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["screwed faceplate", "internal terminal screws"],
+        "labels_or_markings": "standard European Schuko socket marking; no visible brand or certification badge",
+        "connection_type": "surface-mounted, screwed to wall"
+      },
+      "deconstruction_notes": "Disconnect power supply before removal; inspect for corrosion or damage to internal contacts; clean and test for continuity before reuse.",
+      "bounding_box_2d": [248, 830, 345, 865]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "MEP Fittings",
+      "item_name": "split-type air conditioning indoor unit (Daikin brand)",
+      "estimated_materials": ["galvanized steel", "plastic", "copper tubing", "refrigerant (R410A or similar)"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["mounting brackets", "screws", "drain pipe connection", "power cord"],
+        "labels_or_markings": "Daikin logo visible; model number not legible; likely includes energy efficiency rating sticker (not visible)",
+        "connection_type": "surface-mounted, bolted to wall"
+      },
+      "deconstruction_notes": "Must be professionally decommissioned by licensed HVAC technician to recover refrigerant; remove mounting brackets and inspect for wall damage; unit may require cleaning and performance testing for reuse.",
+      "bounding_box_2d": [585, 0, 999, 130]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Finishes & Coverings",
+      "item_name": "dark gray vertical accent strip (possibly metal or vinyl panel)",
+      "estimated_materials": ["aluminum", "PVC", "steel"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "",
+        "connection_type": "adhered or mechanically fastened to wall"
+      },
+      "deconstruction_notes": "Carefully remove to preserve surface; check for adhesive residue; may be reusable as decorative panel or partition accent.",
+      "bounding_box_2d": [450, 0, 575, 920]
+    },
+    {
+      "component_id": "comp_05",
+      "category": "Finishes & Coverings",
+      "item_name": "black baseboard or skirting board",
+      "estimated_materials": ["PVC", "MDF", "vinyl"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["screws or nails"],
+        "labels_or_markings": "",
+        "connection_type": "nail/screwed to wall"
+      },
+      "deconstruction_notes": "Remove with pry bar; inspect for warping or moisture damage; sand and repaint if necessary for reuse.",
+      "bounding_box_2d": [0, 910, 999, 935]
+    },
+    {
+      "component_id": "comp_06",
+      "category": "Finishes & Coverings",
+      "item_name": "dark carpet flooring",
+      "estimated_materials": ["nylon", "polypropylene", "rubber or latex backing"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "",
+        "connection_type": "glued or mechanically fastened to subfloor"
+      },
+      "deconstruction_notes": "Remove using carpet knife; separate backing from fiber; check for contamination; send to specialized carpet recycling facility.",
+      "bounding_box_2d": [0, 920, 999, 999]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of asbestos in older wall finishes or insulation behind drywall; test for lead-based paint if building predates 1978; inspect electrical wiring for damage or outdated insulation; confirm refrigerant type and pressure in AC unit before dismantling."
+  ]
+}

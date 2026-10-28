@@ -1,0 +1,27 @@
+{
+  "audit_summary": {
+    "space_type": "mechanical room or utility closet",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Mechanical & Plumbing Equipment",
+      "item_name": "Hoval TOPGAS® CLASSIC (80) condensing boiler",
+      "estimated_materials": ["stainless steel", "galvanized steel", "plastic casing", "copper tubing", "insulation (mineral wool or polyisocyanurate)"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["pressure relief valve", "gas inlet connection", "electrical terminal block", "drain valve", "temperature sensor ports"],
+        "labels_or_markings": "Manufacturer: Hoval Aktiengesellschaft FL - 9490 Vaduz; Model: TOPGAS® CLASSIC (80); Date: 10/2022; CE Mark: 0085/22; SVGW SSIGE certification; Gas type: ERDGAS H/18 MBAR; Electrical: 230V~/50HZ/10A, IP40D; NOx Class: 6; Serial: 605194700257; Multiple regional gas supply codes (e.g., I2E(R)3P, I2H3B/P); Fire rating: Not applicable; DIN/EN standards: EN 15502",
+        "connection_type": "flanged or threaded gas connections, electrical conduit entry, drain pipe connection, water inlet/outlet ports"
+      },
+      "deconstruction_notes": "Disconnect gas, water, and electrical supply lines before removal. Remove mounting brackets. Inspect for corrosion on flue and heat exchanger. Verify integrity of insulation before handling. Use lifting equipment for safe removal due to weight.",
+      "bounding_box_2d": [34, 232, 975, 705]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of legacy insulation materials (e.g., asbestos-containing mineral wool) in boiler casing or flue; test if necessary.",
+    "Check for residual gas or water in internal piping before dismantling; depressurize and drain system.",
+    "Inspect for mastic or sealant residues on connections; may require chemical removal if contaminated."
+  ]
+}

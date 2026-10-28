@@ -1,0 +1,55 @@
+{
+  "audit_summary": {
+    "space_type": "circulation corridor",
+    "overall_condition": "Fair"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Doors & Portals",
+      "item_name": "flush steel door leaf with fire-rated core",
+      "estimated_materials": ["cold-rolled steel", "mineral wool core", "paint coating"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["black lever handle", "mortise lock", "strike plate", "surface-mounted hinges"],
+        "labels_or_markings": "No visible manufacturer labels or certification badges; small black circular device near top right corner may be a fire alarm or smoke detector sensor.",
+        "connection_type": "hinged"
+      },
+      "deconstruction_notes": "Remove hinges first, then carefully detach door from frame. Inspect core for moisture or degradation. Core may contain asbestos if pre-1980s; test if uncertain. Clean surface and repaint for reuse.",
+      "bounding_box_2d": [152, 78, 345, 825]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Doors & Portals",
+      "item_name": "flush steel door leaf with fire-rated core",
+      "estimated_materials": ["cold-rolled steel", "mineral wool core", "paint coating"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["black lever handle", "mortise lock", "strike plate", "surface-mounted hinges"],
+        "labels_or_markings": "No visible manufacturer labels or certification badges; small black circular device near top right corner may be a fire alarm or smoke detector sensor.",
+        "connection_type": "hinged"
+      },
+      "deconstruction_notes": "Remove hinges first, then carefully detach door from frame. Inspect core for moisture or degradation. Core may contain asbestos if pre-1980s; test if uncertain. Clean surface and repaint for reuse.",
+      "bounding_box_2d": [415, 198, 745, 578]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Finishes & Coverings",
+      "item_name": "wire mesh storage basket",
+      "estimated_materials": ["galvanized steel wire"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible markings or labels.",
+        "connection_type": "self-standing"
+      },
+      "deconstruction_notes": "Lift out manually; no disassembly required. Clean with wire brush and mild detergent. Suitable for reuse in storage or utility areas.",
+      "bounding_box_2d": [333, 525, 475, 698]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Core material of steel doors may contain legacy asbestos insulation; verify via sampling if building predates 1980.",
+    "Black baseboard trim may contain lead-based paint; test if building predates 1978.",
+    "Mastic or sealant at door frame joints may contain VOCs or hazardous adhesives; inspect and test if necessary."
+  ]
+}

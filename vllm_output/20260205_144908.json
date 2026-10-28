@@ -1,0 +1,97 @@
+{
+  "audit_summary": {
+    "space_type": "locker room or utility washroom",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Casework & Millwork",
+      "item_name": "stainless steel trough sink with integrated backsplash",
+      "estimated_materials": ["stainless steel (likely 304 or 316 grade)"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["three chrome-plated wall-mounted faucets with lever handles", "flexible grey supply hose"],
+        "labels_or_markings": "no visible manufacturer labels or certification badges; surface appears clean and unmarked",
+        "connection_type": "surface-mounted to tiled wall, likely bolted or welded at back edge"
+      },
+      "deconstruction_notes": "Remove by disconnecting supply lines and unscrewing mounting brackets from wall. Ensure no hidden welds or adhesives at junctions. Use care to avoid scratching stainless surface.",
+      "bounding_box_2d": [175, 162, 885, 825]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Finishes & Coverings",
+      "item_name": "large-format ceramic wall tiles",
+      "estimated_materials": ["ceramic tile, cementitious thin-set adhesive, grout"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "no visible manufacturer markings; uniform beige/cream color with subtle veining",
+        "connection_type": "thin-set adhesive with grouted joints"
+      },
+      "deconstruction_notes": "Tiles can be removed with tile removal tools; may require scoring and prying. Check for moisture damage or delamination. Grout may need cleaning or replacement for reuse.",
+      "bounding_box_2d": [17, 95, 885, 575]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Finishes & Coverings",
+      "item_name": "floor tiles",
+      "estimated_materials": ["ceramic or porcelain tile, cementitious adhesive, grout"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "no visible markings; uniform light beige square tiles",
+        "connection_type": "thin-set adhesive with grouted joints"
+      },
+      "deconstruction_notes": "Remove using tile removal tools; inspect for cracks or chipping. Grout may need reapplication for reuse.",
+      "bounding_box_2d": [0, 575, 725, 1000]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Hardware & Fixtures",
+      "item_name": "chrome-plated wall-mounted faucets",
+      "estimated_materials": ["brass or chrome-plated metal, rubber washers, plastic fittings"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["lever handles", "flexible supply hose (one visible)"],
+        "labels_or_markings": "no visible brand or model markings",
+        "connection_type": "threaded wall mount with compression fittings"
+      },
+      "deconstruction_notes": "Disconnect supply lines and unscrew from wall. Clean and inspect for corrosion or mineral buildup. Reuse with new washers if needed.",
+      "bounding_box_2d": [280, 175, 665, 325]
+    },
+    {
+      "component_id": "comp_05",
+      "category": "Casework & Millwork",
+      "item_name": "white compact utility cabinet",
+      "estimated_materials": ["particleboard or MDF, melamine laminate, steel frame or hinges"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": ["hinges", "drawer slide (partially visible)"],
+        "labels_or_markings": "no visible labels; white finish with slight wear",
+        "connection_type": "surface-mounted or freestanding"
+      },
+      "deconstruction_notes": "Disassemble by removing doors and drawers. Separate metal components from wood composites. Check for adhesives or laminates.",
+      "bounding_box_2d": [100, 500, 350, 890]
+    },
+    {
+      "component_id": "comp_06",
+      "category": "Casework & Millwork",
+      "item_name": "green plastic step stool",
+      "estimated_materials": ["recycled HDPE or polypropylene"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "no visible markings",
+        "connection_type": "freestanding"
+      },
+      "deconstruction_notes": "Clean and inspect for cracks or deformation. Suitable for reuse in utility or storage areas.",
+      "bounding_box_2d": [235, 715, 415, 990]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of lead-based paint or hazardous adhesives on wall tiles or cabinet surfaces prior to removal.",
+    "Inspect behind sink for legacy insulation or mastic that may contain asbestos or formaldehyde-based binders.",
+    "Check electrical outlet near sink for proper grounding and moisture protection; verify no exposed wiring."
+  ]
+}

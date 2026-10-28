@@ -1,0 +1,26 @@
+{
+  "audit_summary": {
+    "space_type": "circulation corridor",
+    "overall_condition": "Fair"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "MEP Fixtures & Components",
+      "item_name": "cast iron column radiator",
+      "estimated_materials": ["cast iron", "enamel paint coating", "brass valve"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["thermostatic valve (right end)", "air vent (left end)", "bracket mounting hardware"],
+        "labels_or_markings": "no visible manufacturer markings or certification badges; valve has small circular label with indistinct text",
+        "connection_type": "threaded pipe connections, wall-mounted via brackets"
+      },
+      "deconstruction_notes": "Remove by disconnecting supply/return pipes using pipe wrench; ensure system is drained and depressurized. Lift radiator carefully to avoid damaging enamel coating. Inspect for internal corrosion via valve access if reuse is intended.",
+      "bounding_box_2d": [132, 280, 968, 900]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of lead-based paint on radiator surface prior to handling or sanding; test for lead if refurbishment is planned.",
+    "Inspect wall behind radiator for potential asbestos-containing insulation or mastic, especially near baseboard area where discoloration is visible."
+  ]
+}

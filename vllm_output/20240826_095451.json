@@ -1,0 +1,40 @@
+{
+  "audit_summary": {
+    "space_type": "interior window opening / room corner",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Finishes & Coverings",
+      "item_name": "interior window sill and frame assembly",
+      "estimated_materials": ["polyvinyl chloride (PVC) or painted aluminum", "glass"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible manufacturer labels or certification badges; surface shows minor paint chipping and dirt accumulation.",
+        "connection_type": "dry-bolted or snap-fit to structural frame"
+      },
+      "deconstruction_notes": "Remove by detaching from structural frame using screwdriver or pry tool; inspect for sealant or adhesive residue; clean and repaint for reuse in similar applications.",
+      "bounding_box_2d": [142, 550, 999, 999]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Doors & Portals",
+      "item_name": "fixed glass window unit",
+      "estimated_materials": ["tempered or laminated glass", "aluminum or PVC frame"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels; glass appears to be double-glazed with visible spacer bar and desiccant beads.",
+        "connection_type": "glazed into frame with gasket or sealant"
+      },
+      "deconstruction_notes": "Carefully remove glass unit by releasing gasket or sealant; inspect for cracks or delamination; suitable for reuse in non-load-bearing applications.",
+      "bounding_box_2d": [0, 0, 789, 792]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of lead-based paint on window frame or sill prior to sanding or removal; test sealant for VOCs or asbestos if building predates 1980.",
+    "Inspect glass for laminated safety film or interlayer; if present, handle with care to avoid shattering during removal."
+  ]
+}

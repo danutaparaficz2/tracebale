@@ -1,0 +1,69 @@
+{
+  "audit_summary": {
+    "space_type": "circulation corridor",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Doors & Portals",
+      "item_name": "flush steel door with transom window",
+      "estimated_materials": ["carbon steel", "mineral core", "polycarbonate or acrylic glazing"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["silver lever handle", "mortise lock", "strike plate", "door closer (not visible but likely present)"],
+        "labels_or_markings": "No visible manufacturer labels or certification badges; door frame appears to have standard industrial finish.",
+        "connection_type": "hinged with concealed hinges (likely surface-mounted or mortised)"
+      },
+      "deconstruction_notes": "Remove door leaf by disengaging hinges; inspect core for moisture or degradation. Transom glazing may be secured with silicone or gasket—use caution to avoid breakage. Door frame may be anchored with screws or bolts; check for concealed fasteners.",
+      "bounding_box_2d": [142, 225, 450, 710]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Finishes & Coverings",
+      "item_name": "painted concrete block wall with color bands",
+      "estimated_materials": ["concrete masonry units (CMU)", "acrylic or epoxy paint"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels; color bands (blue, white, green) suggest functional zoning or safety marking.",
+        "connection_type": "mortared masonry"
+      },
+      "deconstruction_notes": "Demolition requires mechanical breaking; paint may be lead-free based on modern standards, but testing recommended. CMU blocks are recyclable as aggregate.",
+      "bounding_box_2d": [575, 0, 999, 999]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Finishes & Coverings",
+      "item_name": "ceramic tile flooring",
+      "estimated_materials": ["ceramic tile", "cementitious thinset", "concrete substrate"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible markings; uniform tile pattern suggests standard commercial installation.",
+        "connection_type": "adhered with thinset mortar"
+      },
+      "deconstruction_notes": "Tiles can be removed with chisel and hammer; however, due to size and condition, likely not suitable for reuse. Recycle as construction aggregate or landfill if contaminated.",
+      "bounding_box_2d": [0, 695, 460, 999]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Structural & Enclosure",
+      "item_name": "steel column or portal frame",
+      "estimated_materials": ["structural steel", "paint coating"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible markings; likely standard structural steel section.",
+        "connection_type": "welded or bolted to foundation (not visible)"
+      },
+      "deconstruction_notes": "Remove with torch or bolt-cutting; inspect for corrosion. Steel is high-value recyclable; if intact, can be reused in new construction.",
+      "bounding_box_2d": [450, 0, 595, 999]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify paint composition on CMU walls for lead content (especially if pre-1978 building).",
+    "Inspect door core for moisture or mold; legacy mineral cores may contain asbestos if pre-1980s.",
+    "Test adhesives and sealants used in door transom and tile installation for VOCs or hazardous content."
+  ]
+}

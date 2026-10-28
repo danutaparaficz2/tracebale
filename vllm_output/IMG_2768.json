@@ -1,0 +1,84 @@
+{
+  "audit_summary": {
+    "space_type": "circulation corridor",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Finishes & Coverings",
+      "item_name": "painted concrete block wall panels (blue, white, green)",
+      "estimated_materials": ["concrete", "paint (acrylic or latex)"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels or markings; painted surfaces show no manufacturer badges or certification stickers.",
+        "connection_type": "monolithic (cast-in-place or masonry laid with mortar)"
+      },
+      "deconstruction_notes": "Walls are structural and not designed for disassembly; removal requires mechanical demolition. Painted surfaces may contain lead-based paint if pre-1978; testing recommended. Avoid dust generation during demolition.",
+      "bounding_box_2d": [0, 0, 999, 999]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Structural Elements",
+      "item_name": "steel structural columns",
+      "estimated_materials": ["carbon steel"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible markings or tags; surface appears painted or coated, possibly with industrial enamel.",
+        "connection_type": "welded or bolted to foundation and beam system (not visible in image)"
+      },
+      "deconstruction_notes": "Columns are likely bolted or welded to base plates; require structural assessment before removal. Use magnetic particle inspection if reuse is intended. Remove with crane or lifting equipment.",
+      "bounding_box_2d": [365, 0, 550, 999]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Finishes & Coverings",
+      "item_name": "ceiling tile system (linear metal or composite panels)",
+      "estimated_materials": ["galvanized steel", "mineral fiber", "paint"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels; panels appear uniform with no manufacturer badges.",
+        "connection_type": "suspended grid system (not visible), likely clipped or snapped into place"
+      },
+      "deconstruction_notes": "Ceiling panels can be removed manually with minimal tools. Check for asbestos in older buildings; if pre-1980, testing required. Recycle metal and fiber components separately.",
+      "bounding_box_2d": [545, 0, 999, 290]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Finishes & Coverings",
+      "item_name": "terrazzo or ceramic tile flooring (herringbone pattern)",
+      "estimated_materials": ["ceramic tile", "grout", "adhesive"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels or manufacturer markings on tiles.",
+        "connection_type": "adhered to concrete or mortar bed"
+      },
+      "deconstruction_notes": "Tiles are likely bonded with mastic or thin-set; removal requires chipping or grinding. Test adhesive for VOCs or hazardous content. Recycle ceramic as aggregate or raw material.",
+      "bounding_box_2d": [250, 550, 999, 999]
+    },
+    {
+      "component_id": "comp_05",
+      "category": "Windows & Openings",
+      "item_name": "small fixed window (likely for ventilation or light)",
+      "estimated_materials": ["glass", "metal frame (aluminum or steel)", "paint"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["small handle or latch visible on frame"],
+        "labels_or_markings": "No visible labels or certification badges.",
+        "connection_type": "set into concrete block wall, likely with mortar or sealant"
+      },
+      "deconstruction_notes": "Window can be carefully removed with pry bar and hammer; check for lead paint on frame. Clean glass and frame; replace sealant if needed. Reuse in low-load applications.",
+      "bounding_box_2d": [730, 345, 805, 465]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Paint on concrete blocks may contain lead; testing recommended before demolition.",
+    "Ceiling panels may contain asbestos if building predates 1980; sample for analysis.",
+    "Flooring adhesive may contain VOCs or hazardous mastic; test prior to removal.",
+    "Structural steel columns may have coating degradation or corrosion; inspect for pitting or rust before reuse."
+  ]
+}

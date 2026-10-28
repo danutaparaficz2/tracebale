@@ -1,0 +1,54 @@
+{
+  "audit_summary": {
+    "space_type": "exterior stairwell",
+    "overall_condition": "Fair"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Railings & Guards",
+      "item_name": "galvanized steel handrail and guardrail assembly",
+      "estimated_materials": ["galvanized steel"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels or markings",
+        "connection_type": "welded to stair stringers and anchored to concrete base"
+      },
+      "deconstruction_notes": "Disassemble by cutting welds at stringer connections; inspect for corrosion at base anchors; remove with care to avoid bending or kinking tubular sections.",
+      "bounding_box_2d": [198, 78, 999, 999]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Railings & Guards",
+      "item_name": "galvanized steel stair treads with diamond plate surface",
+      "estimated_materials": ["galvanized steel"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible labels or markings",
+        "connection_type": "welded to steel stringers"
+      },
+      "deconstruction_notes": "Cut welds at stringer connections; inspect for localized corrosion or pitting; treads may be reused as industrial flooring or platform decking.",
+      "bounding_box_2d": [312, 238, 935, 985]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Doors & Portals",
+      "item_name": "steel door with intercom and signage",
+      "estimated_materials": ["steel, glass, plastic"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["intercom panel", "door handle", "lock mechanism", "strike plate"],
+        "labels_or_markings": "White paper signage with text; no visible manufacturer markings",
+        "connection_type": "hinged, surface-mounted"
+      },
+      "deconstruction_notes": "Remove door hinges and disconnect intercom wiring; inspect door leaf for denting or warping; clean and repaint for reuse in industrial or commercial applications.",
+      "bounding_box_2d": [278, 0, 525, 258]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Inspect galvanized steel for lead-based paint or zinc-rich coatings; test for presence of hazardous mastic or sealants at base anchors.",
+    "Verify condition of concrete base and embedded anchors for structural integrity prior to removal."
+  ]
+}

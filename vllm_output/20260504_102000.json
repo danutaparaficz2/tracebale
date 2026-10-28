@@ -1,0 +1,67 @@
+{
+  "audit_summary": {
+    "space_type": "circulation corridor",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Railings & Guards",
+      "item_name": "stainless steel handrail with curved profile",
+      "estimated_materials": ["stainless steel"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["surface-mounted brackets", "welded joints"],
+        "labels_or_markings": "no visible labels or markings",
+        "connection_type": "surface-mounted with bracketed supports"
+      },
+      "deconstruction_notes": "Remove by unscrewing or unbolting mounting brackets; inspect for weld integrity and surface corrosion; clean with mild detergent and stainless steel polish for reuse.",
+      "bounding_box_2d": [178, 527, 782, 998]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Doors & Portals",
+      "item_name": "frameless glass door with metal edge trim",
+      "estimated_materials": ["tempered glass", "aluminum or stainless steel trim"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["door handle (not visible)", "door closer (not visible)", "glass-to-frame gasket"],
+        "labels_or_markings": "no visible labels or markings",
+        "connection_type": "edge-mounted with gasketed frame"
+      },
+      "deconstruction_notes": "Carefully remove glass panel by releasing gaskets and lifting vertically; inspect for edge chipping or scratches; store flat to prevent stress fractures.",
+      "bounding_box_2d": [112, 0, 488, 998]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Finishes & Coverings",
+      "item_name": "paved stone flooring with metal grating",
+      "estimated_materials": ["natural stone pavers", "galvanized steel grating"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": ["grating fasteners (not visible)"],
+        "labels_or_markings": "no visible labels or markings",
+        "connection_type": "mortared or bedded in sand, grating secured with clips or welds"
+      },
+      "deconstruction_notes": "Remove grating by cutting or prying fasteners; stone pavers can be lifted with pry bar and reused if intact; separate metal and stone for recycling.",
+      "bounding_box_2d": [0, 600, 998, 998]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Casework & Millwork",
+      "item_name": "white metal display stand with glass top",
+      "estimated_materials": ["steel frame", "tempered glass", "powder-coated finish"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["adjustable shelf brackets", "foot levelers"],
+        "labels_or_markings": "no visible labels or markings",
+        "connection_type": "bolted assembly"
+      },
+      "deconstruction_notes": "Disassemble by removing bolts; inspect for coating damage; sand and repaint if needed; glass top can be reused if undamaged.",
+      "bounding_box_2d": [732, 425, 998, 745]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of lead-based paint on metal components prior to sanding or cutting; test for VOCs in adhesives or sealants used in glass gaskets; inspect grating for galvanic corrosion if in contact with dissimilar metals."
+  ]
+}

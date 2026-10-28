@@ -5,8 +5,7 @@ from pathlib import Path
 from PIL import Image
 from pillow_heif import register_heif_opener
 
-from tracebale import ComponentRecognizer
-from tracebale.pipeline import annotate
+from tracebale.pipeline import GroundedSegmenter, annotate
 
 ROOT = Path(__file__).parent
 IMAGE_DIR = ROOT / "Images"
@@ -15,8 +14,10 @@ IMAGE_SUFFIXES = {
     ".tif", ".tiff", ".webp",
 }
 LABELS = ["door", "window"]
-MIN_AREA = 2000
-MIN_SCORE = 0.3
+MIN_AREA = 1000
+MIN_AREA_FRACTION = 0.005  # masks must cover at least 0.5% of the image
+BOX_THRESHOLD = 0.35
+TEXT_THRESHOLD = 0.25
 OUTPUT_DIR = ROOT / "output"
 
 
@@ -39,7 +40,10 @@ def main():
     single_image = len(sys.argv) > 1
     paths = [Path(sys.argv[1])] if single_image else _find_images()
 
-    recognizer = ComponentRecognizer(LABELS, min_area=MIN_AREA, min_score=MIN_SCORE)
+    recognizer = GroundedSegmenter(
+        LABELS, box_threshold=BOX_THRESHOLD, text_threshold=TEXT_THRESHOLD,
+        min_area=MIN_AREA, min_area_fraction=MIN_AREA_FRACTION,
+    )
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     for path in paths:
         print(f"Processing {path}", flush=True)

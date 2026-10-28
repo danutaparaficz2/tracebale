@@ -1,0 +1,84 @@
+{
+  "audit_summary": {
+    "space_type": "mechanical room",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Mechanical & Plumbing Fixtures",
+      "item_name": "Hoval brand wall-mounted boiler unit",
+      "estimated_materials": ["galvanized steel", "insulated composite panel", "plastic casing"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["service access panel", "pressure relief valve", "gas inlet connection", "drain valve"],
+        "labels_or_markings": "Hoval logo, Hoval Service label with phone number 0848 848 464, equipment ID 13000283, warning triangle symbol",
+        "connection_type": "wall-mounted with bolted flange, piped connections via threaded and compression fittings"
+      },
+      "deconstruction_notes": "Disconnect gas, water, and electrical supply before removal. Remove mounting bolts and carefully lower unit to avoid damage to casing. Inspect for internal corrosion or heat damage prior to refurbishment.",
+      "bounding_box_2d": [142, 158, 792, 632]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Mechanical & Plumbing Fixtures",
+      "item_name": "red expansion tank (likely for heating system)",
+      "estimated_materials": ["steel", "polyester coating", "rubber diaphragm"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["pressure gauge", "valve", "bracket mounting"],
+        "labels_or_markings": "No visible labels; standard industrial red finish",
+        "connection_type": "bolted to wall bracket, threaded pipe connection"
+      },
+      "deconstruction_notes": "Drain and depressurize before removal. Check for internal corrosion or diaphragm degradation. Reuse only if pressure-tested and functional.",
+      "bounding_box_2d": [0, 465, 273, 999]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Mechanical & Plumbing Fixtures",
+      "item_name": "gray plastic expansion tank or buffer tank",
+      "estimated_materials": ["polypropylene", "steel end caps"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": ["valve", "pressure gauge", "bracket mounting"],
+        "labels_or_markings": "No visible labels",
+        "connection_type": "bolted to wall bracket, threaded pipe connection"
+      },
+      "deconstruction_notes": "Remove from mounting bracket. Separate metal end caps from plastic body for material sorting.",
+      "bounding_box_2d": [688, 712, 999, 900]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Plumbing & Piping Systems",
+      "item_name": "gray PVC or CPVC piping system",
+      "estimated_materials": ["PVC", "CPVC", "brass fittings"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": ["elbows", "tees", "valves", "compression fittings"],
+        "labels_or_markings": "No visible labels; standard gray coloration",
+        "connection_type": "solvent-welded joints, threaded connections"
+      },
+      "deconstruction_notes": "Cut pipes at joints to separate fittings. Sort by material type (PVC/CPVC) and metal fittings for recycling.",
+      "bounding_box_2d": [62, 105, 999, 735]
+    },
+    {
+      "component_id": "comp_05",
+      "category": "Finishes & Coverings",
+      "item_name": "ceramic tile flooring",
+      "estimated_materials": ["ceramic tile", "cementitious mortar", "epoxy grout"],
+      "salvage_tier": "material_recycling",
+      "technical_features": {
+        "hardware_present": "none",
+        "labels_or_markings": "none",
+        "connection_type": "adhered to concrete subfloor"
+      },
+      "deconstruction_notes": "Remove using tile puller or chisel. Separate tiles from mortar for recycling. Test grout for hazardous additives if unknown.",
+      "bounding_box_2d": [192, 835, 999, 999]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of asbestos in joint compounds or insulation around pipes prior to dismantling.",
+    "Test for lead-based paint on metal components if building predates 1978.",
+    "Inspect boiler casing for internal corrosion or heat damage before reuse.",
+    "Check for mastic or adhesive residues on pipe joints that may require hazardous waste handling."
+  ]
+}

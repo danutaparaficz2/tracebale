@@ -1,0 +1,68 @@
+{
+  "audit_summary": {
+    "space_type": "entrance portal",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Doors & Portals",
+      "item_name": "green-painted steel door leaf with glazed panel",
+      "estimated_materials": ["carbon steel", "tempered glass", "paint coating"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["chrome-plated D-shaped pull handle", "surface-mounted latch", "strike plate", "door closer (not visible but implied by function)"],
+        "labels_or_markings": "No visible manufacturer markings or certification badges; text on adjacent panels is informational (contact details, 'BUCALETTERE')",
+        "connection_type": "hinged"
+      },
+      "deconstruction_notes": "Remove hinges carefully to preserve door leaf integrity. Check for sealant or gasket at frame interface; may require gentle prying. Door appears to be in good condition with no visible warping or damage.",
+      "bounding_box_2d": [285, 194, 765, 722]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Finishes & Coverings",
+      "item_name": "metal grating entrance mat",
+      "estimated_materials": ["galvanized steel"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible markings",
+        "connection_type": "surface-laid"
+      },
+      "deconstruction_notes": "Lift out manually; no fasteners. Clean and inspect for corrosion before reuse.",
+      "bounding_box_2d": [198, 728, 788, 897]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Casework & Millwork",
+      "item_name": "side panel with frosted glass and letterbox",
+      "estimated_materials": ["aluminum or steel frame", "frosted glass", "metal letterbox insert"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["letterbox slot", "label plate with text 'BUCALETTERE'"],
+        "labels_or_markings": "Text: 'BUCALETTERE', 'Anche per MATERIALE DI VOTO'",
+        "connection_type": "surface-mounted"
+      },
+      "deconstruction_notes": "Remove by detaching from frame or wall. Clean glass and frame; inspect for paint adhesion or corrosion.",
+      "bounding_box_2d": [715, 194, 965, 728]
+    },
+    {
+      "component_id": "comp_04",
+      "category": "Casework & Millwork",
+      "item_name": "side panel with informational signage",
+      "estimated_materials": ["aluminum or steel frame", "frosted glass", "printed vinyl or adhesive label"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "Text: 'Per le vostre richieste potete contattare i nostri servizi via telefono, via e-mail o consultare il nostro sportello elettronico www.stabio.ch'",
+        "connection_type": "surface-mounted"
+      },
+      "deconstruction_notes": "Remove by detaching from frame or wall. Peel off adhesive labels if needed; frame may be reused.",
+      "bounding_box_2d": [95, 194, 285, 728]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of sealant or mastic at door frame-to-wall interface; may contain legacy VOCs or asbestos if original construction predates 1980.",
+    "Inspect door core for potential mineral wool or foam insulation; if present, test for hazardous fibers or chemical degradation before handling."
+  ]
+}

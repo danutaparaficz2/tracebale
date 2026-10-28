@@ -1,0 +1,55 @@
+{
+  "audit_summary": {
+    "space_type": "interior window bay / balcony access area",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Doors & Portals",
+      "item_name": "double-glazed casement window unit (two-leaf configuration)",
+      "estimated_materials": ["PVC-U (polyvinyl chloride), tempered glass, aluminum reinforcement, EPDM seals"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": ["white plastic tilt-and-turn handle", "internal locking mechanism", "hinge pins (likely steel)"],
+        "labels_or_markings": "no visible manufacturer labels or certification badges; window glass has decorative snowflake decals (non-structural)",
+        "connection_type": "hinged, surface-mounted to window frame with concealed hinge pins"
+      },
+      "deconstruction_notes": "Remove by disengaging locking mechanism, releasing hinges, and carefully lifting out. Check for sealant or mastic at frame-to-wall interface; may require gentle prying with flat bar. Glass panes are likely laminated or double-glazed—handle with care to avoid breakage.",
+      "bounding_box_2d": [48, 135, 925, 920]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Finishes & Coverings",
+      "item_name": "interior window sill (likely PVC or painted wood)",
+      "estimated_materials": ["PVC-U or painted MDF/wood composite"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "no visible markings",
+        "connection_type": "adhered or dry-fitted to window frame"
+      },
+      "deconstruction_notes": "Remove by gently prying from frame; may be glued with silicone or acrylic sealant. Clean and sand for refinishing if surface is intact.",
+      "bounding_box_2d": [48, 820, 925, 950]
+    },
+    {
+      "component_id": "comp_03",
+      "category": "Finishes & Coverings",
+      "item_name": "ceiling soffit with horizontal slats (likely PVC or painted wood)",
+      "estimated_materials": ["PVC-U or painted wood"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "no visible markings",
+        "connection_type": "screwed or nailed to ceiling joists"
+      },
+      "deconstruction_notes": "Remove by unscrewing or prying slats from backing; check for moisture damage or mold at joints.",
+      "bounding_box_2d": [0, 0, 999, 140]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of legacy sealants or adhesives at window frame-to-wall interface—may contain VOCs or formaldehyde; test if necessary.",
+    "Inspect window glass for laminated safety glazing (PVB interlayer) or low-emissivity coatings—may affect recycling value.",
+    "Check for hidden insulation or mastic behind window frame—potential for asbestos or CFC-based foams in older builds (though this unit appears modern)."
+  ]
+}

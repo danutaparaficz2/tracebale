@@ -1,0 +1,41 @@
+{
+  "audit_summary": {
+    "space_type": "interior circulation or open-plan space",
+    "overall_condition": "Good"
+  },
+  "salvageable_components": [
+    {
+      "component_id": "comp_01",
+      "category": "Finishes & Coverings",
+      "item_name": "precast concrete coffered ceiling panel system",
+      "estimated_materials": ["lightweight aggregate concrete", "cementitious matrix"],
+      "salvage_tier": "direct_reuse",
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "No visible manufacturer markings or certification badges; surface appears unmarked.",
+        "connection_type": "dry-bolted or grouted at joints; likely modular grid system with interlocking or keyed edges"
+      },
+      "deconstruction_notes": "Remove panels carefully by lifting from perimeter to avoid cracking; inspect for embedded fasteners or concealed wiring; avoid impact to preserve integrity of voids and surface texture.",
+      "bounding_box_2d": [0, 0, 999, 940]
+    },
+    {
+      "component_id": "comp_02",
+      "category": "Lighting & Fixtures",
+      "item_name": "spherical pendant light fixtures",
+      "estimated_materials": ["polished metal (likely aluminum or stainless steel)", "glass or acrylic diffuser"],
+      "salvage_tier": "refurbish_reuse",
+      "technical_features": {
+        "hardware_present": ["suspension rods", "ceiling canopy", "electrical junction box"],
+        "labels_or_markings": "No visible labels; fixtures appear to be standard commercial design.",
+        "connection_type": "suspended via threaded rods or cables from ceiling grid"
+      },
+      "deconstruction_notes": "Disconnect electrical supply before removal; inspect for corrosion or damage to suspension hardware; clean and repaint if needed for reuse.",
+      "bounding_box_2d": [125, 650, 750, 999]
+    }
+  ],
+  "hazard_and_diagnostic_flags": [
+    "Verify presence of concealed wiring or conduit within ceiling voids before panel removal.",
+    "Test for presence of legacy fireproofing or sealants in joint areas; potential for asbestos-containing materials if building predates 1980s.",
+    "Inspect for moisture intrusion or efflorescence in concrete panels, which may indicate long-term water exposure."
+  ]
+}
