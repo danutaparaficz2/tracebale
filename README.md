@@ -115,6 +115,63 @@ dets = rec.recognize(Image.open("board.jpg"))
 
 Tests: `pip install pytest numpy pillow && pytest` (pure-logic tests need no models).
 
+## Qwen-VL / vLLM analysis
+
+`../vLLM.py` sends the photographs in `Images/` to an OpenAI-compatible local
+vLLM server running `Qwen/Qwen3-VL-32B-Instruct`. The server must be running
+before the batch script is started. By default the script uses:
+
+- API endpoint: `http://localhost:8000/v1`
+- Input directory: `tracebale/Images/`
+- JSON output directory: `tracebale/vllm_output/`
+- Maximum image side: 1568 pixels
+- Maximum response length: 4000 tokens
+- Request timeout: 300 seconds
+
+Install the client-side dependencies in the project virtual environment:
+
+```bash
+source .venv/bin/activate
+python -m pip install openai requests pillow-heif
+```
+
+Run the complete batch from the project parent directory:
+
+```bash
+python vLLM.py
+```
+
+The script performs an endpoint health check, normalizes EXIF orientation,
+resizes images, encodes them as JPEG data URIs, and writes one JSON report per
+image. It does not silently retry a timed-out model request.
+
+### vLLM configuration and resume controls
+
+The batch can be configured with environment variables:
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `OPENAI_BASE_URL` | `http://localhost:8000/v1` | OpenAI-compatible vLLM endpoint |
+| `OPENAI_API_KEY` | `token-not-needed` | API key passed to the client |
+| `OPENAI_MODEL` | `Qwen/Qwen3-VL-32B-Instruct` | Model name |
+| `MAX_IMAGE_SIDE` | `1568` | Maximum encoded image dimension |
+| `OPENAI_MAX_TOKENS` | `4000` | Maximum generated response tokens |
+| `OPENAI_REQUEST_TIMEOUT` | `300` | Per-image request timeout in seconds |
+| `OPENAI_SKIP_EXISTING` | `1` | Reuse valid existing JSON reports |
+| `OPENAI_START_INDEX` | `1` | One-based image index at which to start |
+| `OPENAI_SKIP_ENDPOINT_CHECK` | `0` | Skip the initial `/models` health check |
+
+For example, to rerun image 9 and all following images, even when JSON
+outputs already exist:
+
+```bash
+OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vLLM.py
+```
+
+The image order is the case-insensitive sorted order of supported files in
+`Images/`. A timeout prints `API_ERROR: Request timed out.` and stops the
+batch without overwriting the existing report for that image.
+
 ## SUPSI knowledge-base export
 
 `supsi_kb.py` reads the JSON reports produced by `vLLM.py`, evaluates their
@@ -145,7 +202,51 @@ Useful options:
   `TRACEABLE_Inventory_AI_Generated.xlsx`.
 - `--rebuild-db` — rebuild the local `supsi_kb.sqlite` catalog database.
 
-The extended `supsi_kb_2.py` runner additionally accepts `--image-dir` for
-RGB images and `--depth-weights` for an optional Depth Anything V2 metric
-checkpoint. Existing valid JSON reports can be reused without rerunning the
-vLLM inference step.
+Existing valid JSON reports can be reused without rerunning the vLLM inference
+step.
+
+## Optional active 3D metric-depth measurements
+
+`supsi_kb_2.py` adds an optional single-image 3D measurement step. When both
+`--image-dir` and `--depth-weights` are supplied, it:
+
+1. Matches each vLLM JSON report to the RGB image with the same filename stem.
+2. Converts each vLLM bounding box from normalized `[ymin, xmin, ymax, xmax]`
+   coordinates into image pixels.
+3. Runs the Depth Anything V2 **metric-depth** model to estimate depth in
+   meters.
+4. Back-projects the depth pixels into a 3D point cloud.
+5. Fits an Open3D oriented bounding box and reports estimated width, height,
+   thickness, area, and median distance.
+
+The resulting metric dimensions take precedence over the VLM's rough
+`geometry_estimate` text and are written to the Excel `Geometry` column with
+the suffix `measured via Metric Depth`. This is an RGB single-view estimate,
+not a laser scan or certified survey measurement. Accuracy depends on the
+depth checkpoint, bounding-box quality, camera metadata, scene visibility, and
+the fallback 65-degree field-of-view assumption when focal-length EXIF data is
+unavailable.
+
+The metric path requires Open3D, PyTorch, NumPy, the Depth Anything V2 Python
+module on `PYTHONPATH`, and a compatible metric checkpoint (the default model
+configuration is ViT-L with a 20 m indoor maximum depth):
+
+```bash
+python -m pip install open3d torch numpy
+export PYTHONPATH="/path/to/Depth-Anything-V2:$PYTHONPATH"
+```
+
+Run the extended export from the project parent directory:
+
+```bash
+python supsi_kb_2.py \
+  --vllm-dir tracebale/vllm_output \
+  --image-dir tracebale/Images \
+  --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
+  --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
+```
+
+Without both `--image-dir` and a valid `--depth-weights` path,
+`supsi_kb_2.py` continues using the VLM-provided geometry estimate. Individual
+metric-depth failures are reported and do not prevent the remaining reports
+from being exported.
