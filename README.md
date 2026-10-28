@@ -1,10 +1,188 @@
 # TRACEABLE
 
-Analyses an image and recognises which component each region is. The current
-public pipeline does not train or fine-tune a model on the supplied image or
-component labels.
+TRACEABLE turns raw building-survey photographs into an engineering inventory
+for circular construction assessment. The current workflow combines local
+vision-language auditing, single-view metric-depth estimation, and a local
+SUPSI rules/database layer. It is designed to preserve the evidence chain:
+each inventory row can be traced back to the source photograph, the VLM JSON
+report, the detected component and bounding box, and the rules used to derive
+service-life and reuse fields.
 
-## Current AI example: doors and windows
+## Current end-to-end processing pipeline
+
+The end-to-end processing pipeline operates in three stages:
+
+```text
+[Raw Site Photos]
+       |
+       v
++-------------------------------------------------------------+
+| 1. Perception & Semantic Audit (vLLM.py)                    |
+|    - Model: local Qwen-VL served by vLLM on Spark            |
+|    - Detects salvageable components and visible defects     |
+|    - Extracts eBKP-H levels, disassembly, and fasteners     |
+|    - Outputs 2D boxes: [ymin, xmin, ymax, xmax]             |
++------------------------------+------------------------------+
+                               | JSON: vllm_output/*.json
+                               v
++-------------------------------------------------------------+
+| 2. Spatial & Physical Measurement (Metric Depth Engine)    |
+|    - Model: Depth Anything V2 Metric (Hypersim ViT-L)      |
+|    - Predicts a per-pixel depth map Z in meters             |
+|    - Back-projects pixels into 3D camera coordinates        |
+|    - Fits a 3D oriented bounding box with Open3D            |
+|    - Estimates physical width, height, and thickness        |
++------------------------------+------------------------------+
+                               | Metric dimension estimates
+                               v
++-------------------------------------------------------------+
+| 3. Engineering Ontology & Lifespan Reasoner                |
+|    (metric-enabled implementation: supsi_kb_2.py)          |
+|    - Local SQLite database: supsi_kb.sqlite                 |
+|    - Matches components to SUPSI/UNI WBS codes              |
+|    - Calculates residual service life                        |
+|    - Assigns a circular reuse tier                          |
++------------------------------+------------------------------+
+                               |
+                               v
+                 [TRACEABLE_Inventory_new.xlsx]
+```
+
+### Stage 1: Perception and semantic audit (`vLLM.py`)
+
+- **Input:** RGB survey photographs from `tracebale/Images/`.
+- **Model:** Local `Qwen/Qwen3-VL-32B-Instruct` exposed through an
+  OpenAI-compatible vLLM endpoint on the Spark compute environment.
+- **Task:** The VLM reviews each scene using a Swiss circular-construction
+  audit prompt. It identifies salvageable components, condition, visible
+  defects, eBKP-H classifications, connection types, hardware, and
+  disassembly guidance.
+- **Output:** One JSON report per image in `tracebale/vllm_output/`.
+  Bounding boxes use normalized `[ymin, xmin, ymax, xmax]` coordinates on a
+  0–1000 scale.
+
+The VLM output is an audit hypothesis and should be reviewed by an engineer.
+It is not a calibrated measurement or a substitute for an on-site inspection.
+
+### Stage 2: 3D metric-size estimation (`estimate_metric.py`)
+
+The metric-enabled SUPSI runner combines the original RGB photograph with the
+VLM bounding box:
+
+1. Depth Anything V2 Metric predicts a per-pixel indoor depth map `Z` in
+   meters.
+2. The focal length is read from EXIF metadata when available; otherwise the
+   code uses a pinhole-camera field-of-view fallback.
+3. Pixels inside the component bounding box are back-projected into camera
+   coordinates:
+
+   ```text
+   X = (u - cx) * Z / fx
+   Y = (v - cy) * Z / fy
+   ```
+
+4. Depth outliers are filtered and Open3D fits an oriented bounding box to the
+   resulting 3D point cloud.
+5. The exporter records estimated width, height, thickness, area, and median
+   distance in meters.
+
+These are RGB single-view metric-depth estimates, not laser-scan or certified
+survey measurements. Results depend on the checkpoint, visibility, bounding
+box quality, EXIF/calibration data, and scene geometry.
+
+### Stage 3: Engineering ontology and lifespan reasoning
+
+The metric-enabled `supsi_kb_2.py` runner reads the VLM JSON reports and
+matches their components against the local SUPSI catalogs in
+`supsi_kb.sqlite`:
+
+- `130416_ListaRSL` — reference service-life entries for technological
+  components (449 catalog entries).
+- `120914_ListaAnomalie` — defect/anomaly entries with severity classes
+  (M/S/G; 4,539 catalog entries).
+- Component names are resolved to standard WBS codes, for example
+  `PI.V.02.01.01.02` for a metal internal door.
+- Residual service life is calculated as:
+
+  ```text
+  residual service life = reference service life - (2026 - installation year)
+  ```
+
+- Observed VLM defects are matched to the anomaly catalog.
+- Components receive a circular reuse tier such as Direct Reuse, Refurbish,
+  or Recycling.
+- When metric depth succeeds, its dimensions take precedence over the VLM's
+  rough text-only `geometry_estimate`.
+
+The final workbook mirrors the SUPSI inventory format and is written to
+`TRACEABLE_Inventory_new.xlsx` (or the path passed with `--export-excel`).
+
+## Run the complete current stack
+
+Run commands from the project parent directory, which contains `vLLM.py`,
+`supsi_kb.py`, `supsi_kb_2.py`, and `.venv`.
+
+### 1. Generate VLM audits
+
+Start the local vLLM server first, then run:
+
+```bash
+source .venv/bin/activate
+python vLLM.py
+```
+
+The batch uses valid existing JSON reports by default. To rerun from a
+specific one-based image index, including reports that already exist:
+
+```bash
+OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vLLM.py
+```
+
+The image order is the case-insensitive sorted order of supported files in
+`tracebale/Images/`. Requests have a five-minute default timeout and a timed
+out request stops the batch without overwriting its previous JSON report.
+
+### 2. Measure metric dimensions and export the inventory
+
+The metric-enabled CLI is currently `supsi_kb_2.py`:
+
+```bash
+export PYTHONPATH="/Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth:$PYTHONPATH"
+
+python supsi_kb_2.py \
+  --vllm-dir /Users/danuta.paraficz/PyProjects/Tracable/tracebale/vllm_output \
+  --image-dir /Users/danuta.paraficz/PyProjects/Tracable/tracebale/Images \
+  --depth-weights /Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth/checkpoints/depth_anything_v2_metric_hypersim_vitl.pth \
+  --export-excel TRACEABLE_Inventory_new.xlsx
+```
+
+Install the export dependencies in `.venv`:
+
+```bash
+python -m pip install pandas openpyxl open3d torch numpy
+```
+
+The Depth Anything V2 repository/module and the compatible metric checkpoint
+must be available at the paths supplied above. If metric-depth inputs are not
+provided, or a component's metric estimate fails, the runner continues with
+the VLM geometry estimate and reports the failure.
+
+### `supsi_kb.py` and `supsi_kb_2.py`
+
+`supsi_kb.py` is the original rules/database exporter. It reads
+`vllm_output/*.json` and writes the SUPSI workbook, but its current CLI does
+not expose the metric-depth `--image-dir` and `--depth-weights` flags.
+`supsi_kb_2.py` is the extended implementation that wires those flags to
+`estimate_metric.py`. Keep the two entry points distinct until the
+metric-enabled implementation is promoted to the canonical filename.
+
+## Deprecated legacy SAM/CLIP pipeline
+
+The sections below describe the original component-recognition example. It is
+kept for reproducibility and comparison; it is **not** the current
+vLLM/metric-depth/SUPSI inventory workflow.
+
+### Legacy AI example: doors and windows
 
 This example uses `Images/20260504_103344.jpg`. The current run offers the AI
 only two labels, `door` and `window`, and saves its annotations to
