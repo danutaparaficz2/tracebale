@@ -1,69 +1,159 @@
 {
-  "audit_summary": {
-    "space_type": "circulation corridor",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "circulation corridor",
+  "overall_space_condition": "Good",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Doors & Portals",
-      "item_name": "flush steel door with transom window",
-      "estimated_materials": ["carbon steel", "mineral core", "polycarbonate or acrylic glazing"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["silver lever handle", "mortise lock", "strike plate", "door closer (not visible but likely present)"],
-        "labels_or_markings": "No visible manufacturer labels or certification badges; door frame appears to have standard industrial finish.",
-        "connection_type": "hinged with concealed hinges (likely surface-mounted or mortised)"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0105_Porta_interna"
       },
-      "deconstruction_notes": "Remove door leaf by disengaging hinges; inspect core for moisture or degradation. Transom glazing may be secured with silicone or gasket—use caution to avoid breakage. Door frame may be anchored with screws or bolts; check for concealed fasteners.",
-      "bounding_box_2d": [142, 225, 450, 710]
+      "component_name": "Flush steel internal door with transom window",
+      "geometry_estimate": "0.90 m x 2.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove hinges by unscrewing hinge pins or bolts; door can be lifted off frame. Transom window may be secured with clips or screws; check for sealant at frame joints."
+      },
+      "observed_anomalies": [
+        "minor surface abrasion on door leaf",
+        "slight discoloration on transom grille"
+      ],
+      "technical_features": {
+        "hardware_present": [
+          "silver lever handle",
+          "mortise lock"
+        ],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [142, 225, 448, 710]
     },
     {
       "component_id": "comp_02",
-      "category": "Finishes & Coverings",
-      "item_name": "painted concrete block wall with color bands",
-      "estimated_materials": ["concrete masonry units (CMU)", "acrylic or epoxy paint"],
-      "salvage_tier": "material_recycling",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
+      },
+      "component_name": "Metal ceiling panel system (linear profile)",
+      "geometry_estimate": "approx. 3.00 m x 0.30 m (per panel)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Very simple",
+        "notes": "Panels are likely suspended on a metal grid; can be lifted out from the side or end after releasing clips or screws."
+      },
+      "observed_anomalies": [
+        "minor dust accumulation",
+        "slight bending at edge of one panel"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible labels; color bands (blue, white, green) suggest functional zoning or safety marking.",
-        "connection_type": "mortared masonry"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Demolition requires mechanical breaking; paint may be lead-free based on modern standards, but testing recommended. CMU blocks are recyclable as aggregate.",
-      "bounding_box_2d": [575, 0, 999, 999]
+      "bounding_box_2d": [0, 0, 450, 230]
     },
     {
       "component_id": "comp_03",
-      "category": "Finishes & Coverings",
-      "item_name": "ceramic tile flooring",
-      "estimated_materials": ["ceramic tile", "cementitious thinset", "concrete substrate"],
-      "salvage_tier": "material_recycling",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G02_Parete_portante_interna",
+        "third_level_code": "G0201_Parete_portante_interna"
+      },
+      "component_name": "Painted concrete block wall with color bands",
+      "geometry_estimate": "approx. 2.50 m x 0.30 m (visible section)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Structural wall; not intended for disassembly. If removal is required, use mechanical demolition with dust control."
+      },
+      "observed_anomalies": [
+        "minor surface pitting",
+        "paint chipping at joint between green and white bands"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible markings; uniform tile pattern suggests standard commercial installation.",
-        "connection_type": "adhered with thinset mortar"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Tiles can be removed with chisel and hammer; however, due to size and condition, likely not suitable for reuse. Recycle as construction aggregate or landfill if contaminated.",
-      "bounding_box_2d": [0, 695, 460, 999]
+      "bounding_box_2d": [575, 0, 999, 999]
     },
     {
       "component_id": "comp_04",
-      "category": "Structural & Enclosure",
-      "item_name": "steel column or portal frame",
-      "estimated_materials": ["structural steel", "paint coating"],
-      "salvage_tier": "direct_reuse",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G03_Pavimento_interno",
+        "third_level_code": "G0301_Pavimento_interno"
+      },
+      "component_name": "Ceramic tile flooring",
+      "geometry_estimate": "approx. 3.00 m x 1.50 m (visible area)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Hard chemical connection",
+        "difficulty": "Complex",
+        "notes": "Tiles are adhered with cementitious mortar; removal requires chiseling or grinding. Underlayment may be concrete or screed."
+      },
+      "observed_anomalies": [
+        "minor grout staining",
+        "slight surface scratching"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible markings; likely standard structural steel section.",
-        "connection_type": "welded or bolted to foundation (not visible)"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Remove with torch or bolt-cutting; inspect for corrosion. Steel is high-value recyclable; if intact, can be reused in new construction.",
-      "bounding_box_2d": [450, 0, 595, 999]
+      "bounding_box_2d": [0, 680, 450, 999]
+    },
+    {
+      "component_id": "comp_05",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0101_Parete_divisoria_interna"
+      },
+      "component_name": "Internal partition wall with metal frame and drywall",
+      "geometry_estimate": "approx. 2.50 m x 0.30 m (visible section)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Wall is likely anchored with screws or brackets to floor and ceiling; remove fasteners and lift panel out."
+      },
+      "observed_anomalies": [
+        "minor paint scuffing",
+        "small dent near base"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [45, 185, 142, 760]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify paint composition on CMU walls for lead content (especially if pre-1978 building).",
-    "Inspect door core for moisture or mold; legacy mineral cores may contain asbestos if pre-1980s.",
-    "Test adhesives and sealants used in door transom and tile installation for VOCs or hazardous content."
   ]
 }

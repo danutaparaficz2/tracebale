@@ -1,55 +1,164 @@
 {
-  "audit_summary": {
-    "space_type": "circulation corridor",
-    "overall_condition": "Fair"
-  },
-  "salvageable_components": [
+  "space_type": "circulation corridor",
+  "overall_space_condition": "Fair",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Doors & Portals",
-      "item_name": "flush steel door leaf with fire-rated core",
-      "estimated_materials": ["cold-rolled steel", "mineral wool core", "paint coating"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["black lever handle", "mortise lock", "strike plate", "surface-mounted hinges"],
-        "labels_or_markings": "No visible manufacturer labels or certification badges; small black circular device near top right corner may be a fire alarm or smoke detector sensor.",
-        "connection_type": "hinged"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0105_Porta_interna"
       },
-      "deconstruction_notes": "Remove hinges first, then carefully detach door from frame. Inspect core for moisture or degradation. Core may contain asbestos if pre-1980s; test if uncertain. Clean surface and repaint for reuse.",
-      "bounding_box_2d": [152, 78, 345, 825]
+      "component_name": "Flush white steel internal door leaf with black lever handle and mortise lock",
+      "geometry_estimate": "0.90 m x 2.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove hinges by unscrewing hinge pins or bolts; door can be lifted off frame. Check for any additional fasteners at the top or bottom."
+      },
+      "observed_anomalies": [
+        "minor surface abrasion near hinge area",
+        "light scuff marks on door surface"
+      ],
+      "technical_features": {
+        "hardware_present": [
+          "black lever handle",
+          "mortise lock",
+          "hinges (visible on left side)"
+        ],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [152, 78, 342, 825]
     },
     {
       "component_id": "comp_02",
-      "category": "Doors & Portals",
-      "item_name": "flush steel door leaf with fire-rated core",
-      "estimated_materials": ["cold-rolled steel", "mineral wool core", "paint coating"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["black lever handle", "mortise lock", "strike plate", "surface-mounted hinges"],
-        "labels_or_markings": "No visible manufacturer labels or certification badges; small black circular device near top right corner may be a fire alarm or smoke detector sensor.",
-        "connection_type": "hinged"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0105_Porta_interna"
       },
-      "deconstruction_notes": "Remove hinges first, then carefully detach door from frame. Inspect core for moisture or degradation. Core may contain asbestos if pre-1980s; test if uncertain. Clean surface and repaint for reuse.",
+      "component_name": "Flush white steel internal door leaf with black lever handle and door viewer",
+      "geometry_estimate": "0.90 m x 2.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove hinges by unscrewing hinge pins or bolts; door can be lifted off frame. Door viewer may be secured with screws and should be removed separately if salvageable."
+      },
+      "observed_anomalies": [
+        "minor surface abrasion near handle",
+        "slight discoloration near top edge"
+      ],
+      "technical_features": {
+        "hardware_present": [
+          "black lever handle",
+          "door viewer (peephole)",
+          "hinges (visible on left side)"
+        ],
+        "labels_or_markings": "none visible"
+      },
       "bounding_box_2d": [415, 198, 745, 578]
     },
     {
       "component_id": "comp_03",
-      "category": "Finishes & Coverings",
-      "item_name": "wire mesh storage basket",
-      "estimated_materials": ["galvanized steel wire"],
-      "salvage_tier": "direct_reuse",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0101_Parete_divisoria_interna"
+      },
+      "component_name": "Internal partition wall with white door frame and beige painted finish",
+      "geometry_estimate": "approx. 2.00 m height x 0.90 m width (door opening)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Frame is likely attached to wall with screws or nails; remove door first, then detach frame from wall studs or masonry. Wall material (plasterboard or masonry) may require additional disassembly steps."
+      },
+      "observed_anomalies": [
+        "minor paint chipping at baseboard",
+        "small scuff marks near door frame"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible markings or labels.",
-        "connection_type": "self-standing"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Lift out manually; no disassembly required. Clean with wire brush and mild detergent. Suitable for reuse in storage or utility areas.",
-      "bounding_box_2d": [333, 525, 475, 698]
+      "bounding_box_2d": [75, 10, 895, 895]
+    },
+    {
+      "component_id": "comp_04",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
+      },
+      "component_name": "Painted ceiling surface (likely plaster or drywall)",
+      "geometry_estimate": "approx. 2.00 m x 1.50 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Ceiling is integral to structure; removal requires demolition of entire ceiling assembly. Not recommended for salvage unless full ceiling panel is intact and detachable."
+      },
+      "observed_anomalies": [
+        "minor surface dust accumulation",
+        "small imperfections in paint finish"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [152, 58, 825, 205]
+    },
+    {
+      "component_id": "comp_05",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G03_Pavimento_interno",
+        "third_level_code": "G0301_Pavimento_interno"
+      },
+      "component_name": "Concrete or terrazzo floor tiles with black baseboard",
+      "geometry_estimate": "approx. 2.00 m x 1.50 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Floor is likely poured concrete or bonded tiles; removal requires mechanical demolition. Not suitable for salvage unless tiles are removable with adhesive."
+      },
+      "observed_anomalies": [
+        "surface staining and dirt accumulation",
+        "minor cracks between tiles"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 565, 999, 999]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Core material of steel doors may contain legacy asbestos insulation; verify via sampling if building predates 1980.",
-    "Black baseboard trim may contain lead-based paint; test if building predates 1978.",
-    "Mastic or sealant at door frame joints may contain VOCs or hazardous adhesives; inspect and test if necessary."
   ]
 }

@@ -1,26 +1,38 @@
 {
-  "audit_summary": {
-    "space_type": "circulation corridor",
-    "overall_condition": "Fair"
-  },
-  "salvageable_components": [
+  "space_type": "circulation corridor",
+  "overall_space_condition": "Fair",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Finishes & Coverings",
-      "item_name": "rectangular terracotta floor tile",
-      "estimated_materials": ["terracotta clay, mineral aggregate, glaze"],
-      "salvage_tier": "direct_reuse",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G02_Pavimento_interno",
+        "third_level_code": "G0201_Pavimento_in_mattonelle_ceramiche"
+      },
+      "component_name": "Red ceramic tile floor with grouted joints",
+      "geometry_estimate": "approx. 1.00 m x 1.00 m (per tile, based on ruler scale)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Soft chemical connection",
+        "difficulty": "Complex",
+        "notes": "Tiles are adhered with mortar or adhesive; removal requires careful chiseling or mechanical lifting to avoid cracking; grout joints may need to be cut first."
+      },
+      "observed_anomalies": [
+        "surface abrasion",
+        "minor discoloration and staining",
+        "grout joint degradation",
+        "small debris and dirt accumulation"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible labels or markings; surface shows minor wear and darkened grout lines.",
-        "connection_type": "mortared"
+        "labels_or_markings": "none"
       },
-      "deconstruction_notes": "Tiles can be removed intact using a tile removal tool or chisel with care to avoid cracking. Grout joints should be scored first. Use dust suppression. Check for underlying subfloor condition before removal.",
       "bounding_box_2d": [0, 0, 1000, 1000]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify grout composition for potential asbestos or Portland cement-based mastic; test if necessary before removal.",
-    "Inspect tile edges for hidden lead-based paint or sealant residues, especially if building predates 1978."
   ]
 }

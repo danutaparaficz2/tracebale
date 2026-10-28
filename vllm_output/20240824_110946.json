@@ -1,54 +1,128 @@
 {
-  "audit_summary": {
-    "space_type": "exterior stairwell",
-    "overall_condition": "Fair"
-  },
-  "salvageable_components": [
+  "space_type": "stairwell",
+  "overall_space_condition": "Fair",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Railings & Guards",
-      "item_name": "galvanized steel handrail and guardrail assembly",
-      "estimated_materials": ["galvanized steel"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": [],
-        "labels_or_markings": "No visible labels or markings",
-        "connection_type": "welded to stair stringers and anchored to concrete base"
+      "ebkp_h_classification": {
+        "first_level": "I_Esterno_edificio",
+        "second_level": "I02_Scale_esterne",
+        "third_level_code": "I0201_Scala_esterna_in_metallo"
       },
-      "deconstruction_notes": "Disassemble by cutting welds at stringer connections; inspect for corrosion at base anchors; remove with care to avoid bending or kinking tubular sections.",
-      "bounding_box_2d": [198, 78, 999, 999]
+      "component_name": "External galvanized steel staircase with grated treads and handrails",
+      "geometry_estimate": "approx. 2.50 m (height) x 1.20 m (width) x 0.30 m (depth)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Stair treads and handrails are bolted to stringers; remove bolts and nuts using standard wrenches; ensure structural stability during removal."
+      },
+      "observed_anomalies": [
+        "surface oxidation on handrails and stringers",
+        "minor rust spots on lower treads",
+        "debris accumulation in grating gaps",
+        "some leaf litter and moss growth on lower steps"
+      ],
+      "technical_features": {
+        "hardware_present": ["bolted connections", "grated anti-slip treads"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [198, 75, 999, 999]
     },
     {
       "component_id": "comp_02",
-      "category": "Railings & Guards",
-      "item_name": "galvanized steel stair treads with diamond plate surface",
-      "estimated_materials": ["galvanized steel"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": [],
-        "labels_or_markings": "No visible labels or markings",
-        "connection_type": "welded to steel stringers"
+      "ebkp_h_classification": {
+        "first_level": "E_Facciata_edificio",
+        "second_level": "E03_Infisso_in_facciata",
+        "third_level_code": "E0301_Finestra"
       },
-      "deconstruction_notes": "Cut welds at stringer connections; inspect for localized corrosion or pitting; treads may be reused as industrial flooring or platform decking.",
-      "bounding_box_2d": [312, 238, 935, 985]
+      "component_name": "Window with metal security bars",
+      "geometry_estimate": "approx. 1.20 m x 1.50 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Security bars are bolted to window frame; remove bolts to detach bars; window frame may be fixed to wall with anchors."
+      },
+      "observed_anomalies": [
+        "minor surface oxidation on security bars",
+        "some paint chipping on window frame"
+      ],
+      "technical_features": {
+        "hardware_present": ["metal security bars", "window lock"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [575, 18, 775, 250]
     },
     {
       "component_id": "comp_03",
-      "category": "Doors & Portals",
-      "item_name": "steel door with intercom and signage",
-      "estimated_materials": ["steel, glass, plastic"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["intercom panel", "door handle", "lock mechanism", "strike plate"],
-        "labels_or_markings": "White paper signage with text; no visible manufacturer markings",
-        "connection_type": "hinged, surface-mounted"
+      "ebkp_h_classification": {
+        "first_level": "E_Facciata_edificio",
+        "second_level": "E03_Infisso_in_facciata",
+        "third_level_code": "E0301_Finestra"
       },
-      "deconstruction_notes": "Remove door hinges and disconnect intercom wiring; inspect door leaf for denting or warping; clean and repaint for reuse in industrial or commercial applications.",
-      "bounding_box_2d": [278, 0, 525, 258]
+      "component_name": "Window with metal security bars",
+      "geometry_estimate": "approx. 1.20 m x 1.50 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Security bars are bolted to window frame; remove bolts to detach bars; window frame may be fixed to wall with anchors."
+      },
+      "observed_anomalies": [
+        "minor surface oxidation on security bars",
+        "some paint chipping on window frame"
+      ],
+      "technical_features": {
+        "hardware_present": ["metal security bars", "window lock"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [795, 68, 970, 270]
+    },
+    {
+      "component_id": "comp_04",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0105_Porta_interna"
+      },
+      "component_name": "Steel door with intercom and access control",
+      "geometry_estimate": "approx. 0.90 m x 2.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Door is hinged with standard door hinges; remove hinge pins and bolts to detach door; intercom unit may be surface-mounted and removable."
+      },
+      "observed_anomalies": [
+        "minor surface scratches on door panel",
+        "some dirt accumulation around intercom"
+      ],
+      "technical_features": {
+        "hardware_present": ["intercom panel", "door handle", "lock mechanism"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [280, 0, 525, 255]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Inspect galvanized steel for lead-based paint or zinc-rich coatings; test for presence of hazardous mastic or sealants at base anchors.",
-    "Verify condition of concrete base and embedded anchors for structural integrity prior to removal."
   ]
 }

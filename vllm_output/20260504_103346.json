@@ -1,41 +1,217 @@
 {
-  "audit_summary": {
-    "space_type": "interior circulation or open-plan space",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "office",
+  "overall_space_condition": "Good",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Finishes & Coverings",
-      "item_name": "precast concrete coffered ceiling panel system",
-      "estimated_materials": ["lightweight aggregate concrete", "cementitious matrix"],
-      "salvage_tier": "direct_reuse",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
+      },
+      "component_name": "Pre-cast concrete ceiling panel with grid of rectangular voids",
+      "geometry_estimate": "approx. 1.20 m x 1.20 m per panel, grid layout covering entire ceiling",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Panels are likely cast in place or mechanically anchored to structural slab; requires careful cutting or breaking with minimal vibration to avoid damage to adjacent panels or structure."
+      },
+      "observed_anomalies": [
+        "minor surface dust accumulation",
+        "slight discoloration in voids due to shadowing and age",
+        "no visible cracks or spalling"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible manufacturer markings or certification badges; surface appears unmarked.",
-        "connection_type": "dry-bolted or grouted at joints; likely modular grid system with interlocking or keyed edges"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Remove panels carefully by lifting from perimeter to avoid cracking; inspect for embedded fasteners or concealed wiring; avoid impact to preserve integrity of voids and surface texture.",
-      "bounding_box_2d": [0, 0, 999, 940]
+      "bounding_box_2d": [0, 0, 1000, 950]
     },
     {
       "component_id": "comp_02",
-      "category": "Lighting & Fixtures",
-      "item_name": "spherical pendant light fixtures",
-      "estimated_materials": ["polished metal (likely aluminum or stainless steel)", "glass or acrylic diffuser"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["suspension rods", "ceiling canopy", "electrical junction box"],
-        "labels_or_markings": "No visible labels; fixtures appear to be standard commercial design.",
-        "connection_type": "suspended via threaded rods or cables from ceiling grid"
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_di_illuminazione",
+        "third_level_code": "D0101_Lampada_sospesa"
       },
-      "deconstruction_notes": "Disconnect electrical supply before removal; inspect for corrosion or damage to suspension hardware; clean and repaint if needed for reuse.",
-      "bounding_box_2d": [125, 650, 750, 999]
+      "component_name": "Spherical pendant light fixture with metal cage and diffuser",
+      "geometry_estimate": "diameter approx. 0.30 m, hanging length approx. 1.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip canopy from ceiling, disconnect electrical wiring at junction box; remove fixture by detaching suspension rods."
+      },
+      "observed_anomalies": [
+        "light surface dust on diffuser",
+        "minor scratches on metal cage"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension rod", "canopy", "electrical connector"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [125, 660, 175, 920]
+    },
+    {
+      "component_id": "comp_03",
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_di_illuminazione",
+        "third_level_code": "D0101_Lampada_sospesa"
+      },
+      "component_name": "Spherical pendant light fixture with metal cage and diffuser",
+      "geometry_estimate": "diameter approx. 0.30 m, hanging length approx. 1.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip canopy from ceiling, disconnect electrical wiring at junction box; remove fixture by detaching suspension rods."
+      },
+      "observed_anomalies": [
+        "light surface dust on diffuser",
+        "minor scratches on metal cage"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension rod", "canopy", "electrical connector"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [705, 720, 755, 920]
+    },
+    {
+      "component_id": "comp_04",
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_di_illuminazione",
+        "third_level_code": "D0101_Lampada_sospesa"
+      },
+      "component_name": "Spherical pendant light fixture with metal cage and diffuser",
+      "geometry_estimate": "diameter approx. 0.30 m, hanging length approx. 1.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip canopy from ceiling, disconnect electrical wiring at junction box; remove fixture by detaching suspension rods."
+      },
+      "observed_anomalies": [
+        "light surface dust on diffuser",
+        "minor scratches on metal cage"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension rod", "canopy", "electrical connector"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [620, 920, 650, 990]
+    },
+    {
+      "component_id": "comp_05",
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_di_illuminazione",
+        "third_level_code": "D0101_Lampada_sospesa"
+      },
+      "component_name": "Spherical pendant light fixture with metal cage and diffuser",
+      "geometry_estimate": "diameter approx. 0.30 m, hanging length approx. 1.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip canopy from ceiling, disconnect electrical wiring at junction box; remove fixture by detaching suspension rods."
+      },
+      "observed_anomalies": [
+        "light surface dust on diffuser",
+        "minor scratches on metal cage"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension rod", "canopy", "electrical connector"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [285, 920, 315, 990]
+    },
+    {
+      "component_id": "comp_06",
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_di_illuminazione",
+        "third_level_code": "D0101_Lampada_sospesa"
+      },
+      "component_name": "Spherical pendant light fixture with metal cage and diffuser",
+      "geometry_estimate": "diameter approx. 0.30 m, hanging length approx. 1.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip canopy from ceiling, disconnect electrical wiring at junction box; remove fixture by detaching suspension rods."
+      },
+      "observed_anomalies": [
+        "light surface dust on diffuser",
+        "minor scratches on metal cage"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension rod", "canopy", "electrical connector"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [430, 920, 460, 990]
+    },
+    {
+      "component_id": "comp_07",
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_di_illuminazione",
+        "third_level_code": "D0101_Lampada_sospesa"
+      },
+      "component_name": "Spherical pendant light fixture with metal cage and diffuser",
+      "geometry_estimate": "diameter approx. 0.30 m, hanging length approx. 1.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip canopy from ceiling, disconnect electrical wiring at junction box; remove fixture by detaching suspension rods."
+      },
+      "observed_anomalies": [
+        "light surface dust on diffuser",
+        "minor scratches on metal cage"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension rod", "canopy", "electrical connector"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [585, 920, 615, 990]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify presence of concealed wiring or conduit within ceiling voids before panel removal.",
-    "Test for presence of legacy fireproofing or sealants in joint areas; potential for asbestos-containing materials if building predates 1980s.",
-    "Inspect for moisture intrusion or efflorescence in concrete panels, which may indicate long-term water exposure."
   ]
 }

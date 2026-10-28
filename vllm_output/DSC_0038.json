@@ -1,26 +1,41 @@
 {
-  "audit_summary": {
-    "space_type": "circulation corridor",
-    "overall_condition": "Fair"
-  },
-  "salvageable_components": [
+  "space_type": "technical room",
+  "overall_space_condition": "Fair",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "MEP Fixtures & Components",
-      "item_name": "cast iron column radiator",
-      "estimated_materials": ["cast iron", "enamel paint coating", "brass valve"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": ["thermostatic valve (right end)", "air vent (left end)", "bracket mounting hardware"],
-        "labels_or_markings": "no visible manufacturer markings or certification badges; valve has small circular label with indistinct text",
-        "connection_type": "threaded pipe connections, wall-mounted via brackets"
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D05_Impianto_di_riscaldamento",
+        "third_level_code": "D0505_Diffusione_di_calore"
       },
-      "deconstruction_notes": "Remove by disconnecting supply/return pipes using pipe wrench; ensure system is drained and depressurized. Lift radiator carefully to avoid damaging enamel coating. Inspect for internal corrosion via valve access if reuse is intended.",
-      "bounding_box_2d": [132, 280, 968, 900]
+      "component_name": "Cast iron column radiator with thermostatic valve",
+      "geometry_estimate": "0.80 m x 1.20 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew the two wall brackets and disconnect the inlet and outlet pipes using appropriate wrenches. Ensure system is depressurized and drained before removal."
+      },
+      "observed_anomalies": [
+        "minor surface dust accumulation",
+        "light discoloration on paint surface",
+        "small paint chip near bottom right bracket"
+      ],
+      "technical_features": {
+        "hardware_present": [
+          "thermostatic valve on right side",
+          "air vent on left side",
+          "two wall mounting brackets"
+        ],
+        "labels_or_markings": "no visible labels or markings"
+      },
+      "bounding_box_2d": [132, 280, 960, 900]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify presence of lead-based paint on radiator surface prior to handling or sanding; test for lead if refurbishment is planned.",
-    "Inspect wall behind radiator for potential asbestos-containing insulation or mastic, especially near baseboard area where discoloration is visible."
   ]
 }

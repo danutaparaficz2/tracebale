@@ -1,40 +1,37 @@
 {
-  "audit_summary": {
-    "space_type": "interior window opening / room corner",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "office",
+  "overall_space_condition": "Good",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Finishes & Coverings",
-      "item_name": "interior window sill and frame assembly",
-      "estimated_materials": ["polyvinyl chloride (PVC) or painted aluminum", "glass"],
-      "salvage_tier": "refurbish_reuse",
+      "ebkp_h_classification": {
+        "first_level": "E_Facciata_edificio",
+        "second_level": "E03_Infisso_in_facciata",
+        "third_level_code": "E0301_Finestra"
+      },
+      "component_name": "Double-glazed window with white PVC frame and integrated sill",
+      "geometry_estimate": "1.50 m x 1.20 m (approximate visible section)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove screws or clips securing frame to masonry or structural opening; disconnect from sill if separate; avoid damaging glazing beads during removal."
+      },
+      "observed_anomalies": [
+        "minor surface scratch on frame",
+        "dust accumulation on sill and frame edges",
+        "slight discoloration on lower frame corner"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible manufacturer labels or certification badges; surface shows minor paint chipping and dirt accumulation.",
-        "connection_type": "dry-bolted or snap-fit to structural frame"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Remove by detaching from structural frame using screwdriver or pry tool; inspect for sealant or adhesive residue; clean and repaint for reuse in similar applications.",
-      "bounding_box_2d": [142, 550, 999, 999]
-    },
-    {
-      "component_id": "comp_02",
-      "category": "Doors & Portals",
-      "item_name": "fixed glass window unit",
-      "estimated_materials": ["tempered or laminated glass", "aluminum or PVC frame"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": [],
-        "labels_or_markings": "No visible labels; glass appears to be double-glazed with visible spacer bar and desiccant beads.",
-        "connection_type": "glazed into frame with gasket or sealant"
-      },
-      "deconstruction_notes": "Carefully remove glass unit by releasing gasket or sealant; inspect for cracks or delamination; suitable for reuse in non-load-bearing applications.",
-      "bounding_box_2d": [0, 0, 789, 792]
+      "bounding_box_2d": [0, 0, 999, 999]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify presence of lead-based paint on window frame or sill prior to sanding or removal; test sealant for VOCs or asbestos if building predates 1980.",
-    "Inspect glass for laminated safety film or interlayer; if present, handle with care to avoid shattering during removal."
   ]
 }

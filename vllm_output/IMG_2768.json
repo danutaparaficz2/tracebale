@@ -1,84 +1,157 @@
 {
-  "audit_summary": {
-    "space_type": "circulation corridor",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "circulation corridor",
+  "overall_space_condition": "Good",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Finishes & Coverings",
-      "item_name": "painted concrete block wall panels (blue, white, green)",
-      "estimated_materials": ["concrete", "paint (acrylic or latex)"],
-      "salvage_tier": "material_recycling",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
+      },
+      "component_name": "Linear metal ceiling panel system",
+      "geometry_estimate": "approx. 3.00 m x 0.15 m (per panel), installed in continuous run",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Panels are likely suspended via clips or hangers; remove fasteners from perimeter or support grid to release panels without damage."
+      },
+      "observed_anomalies": [
+        "minor surface dust accumulation",
+        "slight discoloration along panel edges"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible labels or markings; painted surfaces show no manufacturer badges or certification stickers.",
-        "connection_type": "monolithic (cast-in-place or masonry laid with mortar)"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Walls are structural and not designed for disassembly; removal requires mechanical demolition. Painted surfaces may contain lead-based paint if pre-1978; testing recommended. Avoid dust generation during demolition.",
-      "bounding_box_2d": [0, 0, 999, 999]
+      "bounding_box_2d": [547, 0, 999, 288]
     },
     {
       "component_id": "comp_02",
-      "category": "Structural Elements",
-      "item_name": "steel structural columns",
-      "estimated_materials": ["carbon steel"],
-      "salvage_tier": "direct_reuse",
+      "ebkp_h_classification": {
+        "first_level": "C_Costruzione_grezza_edificio",
+        "second_level": "C03_Pilastro_interno",
+        "third_level_code": "C0302_Pilastro_interno"
+      },
+      "component_name": "Internal steel structural column",
+      "geometry_estimate": "0.20 m x 0.20 m x 3.00 m (approx.)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Column is structurally integrated; requires cutting at base and top with appropriate support during removal. Not intended for salvage without structural modification."
+      },
+      "observed_anomalies": [
+        "light surface oxidation on edges",
+        "minor paint chipping at base"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible markings or tags; surface appears painted or coated, possibly with industrial enamel.",
-        "connection_type": "welded or bolted to foundation and beam system (not visible in image)"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Columns are likely bolted or welded to base plates; require structural assessment before removal. Use magnetic particle inspection if reuse is intended. Remove with crane or lifting equipment.",
-      "bounding_box_2d": [365, 0, 550, 999]
+      "bounding_box_2d": [365, 0, 552, 999]
     },
     {
       "component_id": "comp_03",
-      "category": "Finishes & Coverings",
-      "item_name": "ceiling tile system (linear metal or composite panels)",
-      "estimated_materials": ["galvanized steel", "mineral fiber", "paint"],
-      "salvage_tier": "material_recycling",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G02_Parete_portante_interna",
+        "third_level_code": "G0201_Parete_portante_interna"
+      },
+      "component_name": "Painted concrete block wall (three-color finish)",
+      "geometry_estimate": "approx. 3.00 m x 2.50 m (per visible section)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Likely",
+        "pollutant_details": "Lead-based paint suspected in older buildings; paint layers may contain heavy metals."
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Wall is load-bearing; removal requires structural support. Painted surface can be stripped for reuse if intact, but blocks are not typically salvaged due to weight and fragility."
+      },
+      "observed_anomalies": [
+        "minor paint peeling at joints",
+        "surface abrasion near base",
+        "small water stain near floor level"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible labels; panels appear uniform with no manufacturer badges.",
-        "connection_type": "suspended grid system (not visible), likely clipped or snapped into place"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Ceiling panels can be removed manually with minimal tools. Check for asbestos in older buildings; if pre-1980, testing required. Recycle metal and fiber components separately.",
-      "bounding_box_2d": [545, 0, 999, 290]
+      "bounding_box_2d": [0, 0, 999, 999]
     },
     {
       "component_id": "comp_04",
-      "category": "Finishes & Coverings",
-      "item_name": "terrazzo or ceramic tile flooring (herringbone pattern)",
-      "estimated_materials": ["ceramic tile", "grout", "adhesive"],
-      "salvage_tier": "material_recycling",
+      "ebkp_h_classification": {
+        "first_level": "E_Facciata_edificio",
+        "second_level": "E03_Infisso_in_facciata",
+        "third_level_code": "E0301_Finestra"
+      },
+      "component_name": "Small fixed window in concrete wall",
+      "geometry_estimate": "0.60 m x 0.60 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Window likely secured with screws or anchors; remove fasteners and carefully extract frame. Check for sealant residue."
+      },
+      "observed_anomalies": [
+        "minor surface dirt on glass",
+        "slight frame discoloration"
+      ],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "No visible labels or manufacturer markings on tiles.",
-        "connection_type": "adhered to concrete or mortar bed"
+        "labels_or_markings": "none visible"
       },
-      "deconstruction_notes": "Tiles are likely bonded with mastic or thin-set; removal requires chipping or grinding. Test adhesive for VOCs or hazardous content. Recycle ceramic as aggregate or raw material.",
-      "bounding_box_2d": [250, 550, 999, 999]
+      "bounding_box_2d": [732, 345, 807, 465]
     },
     {
       "component_id": "comp_05",
-      "category": "Windows & Openings",
-      "item_name": "small fixed window (likely for ventilation or light)",
-      "estimated_materials": ["glass", "metal frame (aluminum or steel)", "paint"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["small handle or latch visible on frame"],
-        "labels_or_markings": "No visible labels or certification badges.",
-        "connection_type": "set into concrete block wall, likely with mortar or sealant"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G05_Pavimento_interno",
+        "third_level_code": "G0501_Pavimento_interno"
       },
-      "deconstruction_notes": "Window can be carefully removed with pry bar and hammer; check for lead paint on frame. Clean glass and frame; replace sealant if needed. Reuse in low-load applications.",
-      "bounding_box_2d": [730, 345, 805, 465]
+      "component_name": "Terracotta brick flooring in herringbone pattern",
+      "geometry_estimate": "approx. 3.00 m x 1.50 m (visible section)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Soft chemical connection",
+        "difficulty": "Simple",
+        "notes": "Bricks are likely set in mortar; can be carefully removed with chisel and hammer, preserving bricks for reuse. Clean joints before removal."
+      },
+      "observed_anomalies": [
+        "minor surface staining",
+        "some loose grout joints"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [258, 555, 999, 999]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Paint on concrete blocks may contain lead; testing recommended before demolition.",
-    "Ceiling panels may contain asbestos if building predates 1980; sample for analysis.",
-    "Flooring adhesive may contain VOCs or hazardous mastic; test prior to removal.",
-    "Structural steel columns may have coating degradation or corrosion; inspect for pitting or rust before reuse."
   ]
 }

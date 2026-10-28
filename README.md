@@ -114,3 +114,38 @@ dets = rec.recognize(Image.open("board.jpg"))
 ```
 
 Tests: `pip install pytest numpy pillow && pytest` (pure-logic tests need no models).
+
+## SUPSI knowledge-base export
+
+`supsi_kb.py` reads the JSON reports produced by `vLLM.py`, evaluates their
+components against the SUPSI WBS, RSL, and anomaly catalogs, and exports an
+inventory workbook. The exporter writes the `Inventory` worksheet to
+`TRACEABLE_Inventory_AI_Generated.xlsx` by default.
+
+From the project parent directory (the directory containing `supsi_kb.py`),
+install the Excel-processing dependencies in the project virtual environment:
+
+```bash
+source .venv/bin/activate
+python -m pip install pandas openpyxl
+```
+
+Run the knowledge-base export from that same directory:
+
+```bash
+python supsi_kb.py \
+  --vllm-dir tracebale/vllm_output \
+  --export-excel TRACEABLE_Inventory_AI_Generated.xlsx
+```
+
+Useful options:
+
+- `--vllm-dir PATH` — directory containing vLLM JSON reports.
+- `--export-excel PATH` — destination `.xlsx` file; defaults to
+  `TRACEABLE_Inventory_AI_Generated.xlsx`.
+- `--rebuild-db` — rebuild the local `supsi_kb.sqlite` catalog database.
+
+The extended `supsi_kb_2.py` runner additionally accepts `--image-dir` for
+RGB images and `--depth-weights` for an optional Depth Anything V2 metric
+checkpoint. Existing valid JSON reports can be reused without rerunning the
+vLLM inference step.

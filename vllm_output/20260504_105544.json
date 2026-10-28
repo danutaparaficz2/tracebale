@@ -1,84 +1,186 @@
 {
-  "audit_summary": {
-    "space_type": "mechanical room",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "technical room",
+  "overall_space_condition": "Fair",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Mechanical & Plumbing Fixtures",
-      "item_name": "Hoval brand wall-mounted boiler unit",
-      "estimated_materials": ["galvanized steel", "insulated composite panel", "plastic casing"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["service access panel", "pressure relief valve", "gas inlet connection", "drain valve"],
-        "labels_or_markings": "Hoval logo, Hoval Service label with phone number 0848 848 464, equipment ID 13000283, warning triangle symbol",
-        "connection_type": "wall-mounted with bolted flange, piped connections via threaded and compression fittings"
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D05_Impianto_di_riscaldamento",
+        "third_level_code": "D0501_Caldaia"
       },
-      "deconstruction_notes": "Disconnect gas, water, and electrical supply before removal. Remove mounting bolts and carefully lower unit to avoid damage to casing. Inspect for internal corrosion or heat damage prior to refurbishment.",
-      "bounding_box_2d": [142, 158, 792, 632]
+      "component_name": "Hoval brand wall-mounted gas boiler",
+      "geometry_estimate": "0.60 m x 0.80 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew mounting brackets from wall; disconnect gas, water, and electrical connections before removal."
+      },
+      "observed_anomalies": [
+        "minor surface dust accumulation",
+        "slight discoloration on lower panel"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "Hoval brand label, service contact sticker with phone number, equipment serial number"
+      },
+      "bounding_box_2d": [142, 160, 789, 632]
     },
     {
       "component_id": "comp_02",
-      "category": "Mechanical & Plumbing Fixtures",
-      "item_name": "red expansion tank (likely for heating system)",
-      "estimated_materials": ["steel", "polyester coating", "rubber diaphragm"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["pressure gauge", "valve", "bracket mounting"],
-        "labels_or_markings": "No visible labels; standard industrial red finish",
-        "connection_type": "bolted to wall bracket, threaded pipe connection"
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D05_Impianto_di_riscaldamento",
+        "third_level_code": "D0502_Immagazzinatore_di_acqua_calda"
       },
-      "deconstruction_notes": "Drain and depressurize before removal. Check for internal corrosion or diaphragm degradation. Reuse only if pressure-tested and functional.",
-      "bounding_box_2d": [0, 465, 273, 999]
+      "component_name": "Red cylindrical hot water storage tank",
+      "geometry_estimate": "0.50 m diameter x 1.50 m height",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Disconnect inlet/outlet pipes and electrical connections; remove mounting brackets."
+      },
+      "observed_anomalies": [
+        "minor surface scratches",
+        "dust accumulation"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 465, 275, 965]
     },
     {
       "component_id": "comp_03",
-      "category": "Mechanical & Plumbing Fixtures",
-      "item_name": "gray plastic expansion tank or buffer tank",
-      "estimated_materials": ["polypropylene", "steel end caps"],
-      "salvage_tier": "material_recycling",
-      "technical_features": {
-        "hardware_present": ["valve", "pressure gauge", "bracket mounting"],
-        "labels_or_markings": "No visible labels",
-        "connection_type": "bolted to wall bracket, threaded pipe connection"
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D05_Impianto_di_riscaldamento",
+        "third_level_code": "D0503_Tubazioni_di_riscaldamento"
       },
-      "deconstruction_notes": "Remove from mounting bracket. Separate metal end caps from plastic body for material sorting.",
-      "bounding_box_2d": [688, 712, 999, 900]
+      "component_name": "White PVC and metal heating system piping",
+      "geometry_estimate": "various lengths, approx. 2.00 m total visible",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew pipe fittings and disconnect from boiler and tank; remove pipe clamps."
+      },
+      "observed_anomalies": [
+        "minor surface dirt",
+        "some pipe joints show slight discoloration"
+      ],
+      "technical_features": {
+        "hardware_present": ["pipe clamps", "valves", "flexible connectors"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [62, 105, 980, 875]
     },
     {
       "component_id": "comp_04",
-      "category": "Plumbing & Piping Systems",
-      "item_name": "gray PVC or CPVC piping system",
-      "estimated_materials": ["PVC", "CPVC", "brass fittings"],
-      "salvage_tier": "material_recycling",
-      "technical_features": {
-        "hardware_present": ["elbows", "tees", "valves", "compression fittings"],
-        "labels_or_markings": "No visible labels; standard gray coloration",
-        "connection_type": "solvent-welded joints, threaded connections"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
       },
-      "deconstruction_notes": "Cut pipes at joints to separate fittings. Sort by material type (PVC/CPVC) and metal fittings for recycling.",
-      "bounding_box_2d": [62, 105, 999, 735]
+      "component_name": "White painted ceiling panel",
+      "geometry_estimate": "approx. 1.50 m x 0.80 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove screws or clips securing panel to ceiling structure."
+      },
+      "observed_anomalies": [
+        "minor surface dust",
+        "small water stain near edge"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none"
+      },
+      "bounding_box_2d": [0, 0, 999, 85]
     },
     {
       "component_id": "comp_05",
-      "category": "Finishes & Coverings",
-      "item_name": "ceramic tile flooring",
-      "estimated_materials": ["ceramic tile", "cementitious mortar", "epoxy grout"],
-      "salvage_tier": "material_recycling",
-      "technical_features": {
-        "hardware_present": "none",
-        "labels_or_markings": "none",
-        "connection_type": "adhered to concrete subfloor"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G03_Parete_interna",
+        "third_level_code": "G0301_Parete_interna"
       },
-      "deconstruction_notes": "Remove using tile puller or chisel. Separate tiles from mortar for recycling. Test grout for hazardous additives if unknown.",
-      "bounding_box_2d": [192, 835, 999, 999]
+      "component_name": "White painted interior wall",
+      "geometry_estimate": "approx. 2.00 m x 1.50 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Wall is structural; not intended for disassembly. Removal would require demolition."
+      },
+      "observed_anomalies": [
+        "minor surface dirt",
+        "small cracks near base"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none"
+      },
+      "bounding_box_2d": [0, 85, 999, 850]
+    },
+    {
+      "component_id": "comp_06",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G05_Pavimento_interno",
+        "third_level_code": "G0501_Pavimento_interno"
+      },
+      "component_name": "Beige ceramic tile floor",
+      "geometry_estimate": "approx. 2.00 m x 1.50 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Hard chemical connection",
+        "difficulty": "Complex",
+        "notes": "Tiles are adhered with mortar; removal requires chiseling and may damage subfloor."
+      },
+      "observed_anomalies": [
+        "minor grout discoloration",
+        "surface scratches"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none"
+      },
+      "bounding_box_2d": [0, 830, 999, 999]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify presence of asbestos in joint compounds or insulation around pipes prior to dismantling.",
-    "Test for lead-based paint on metal components if building predates 1978.",
-    "Inspect boiler casing for internal corrosion or heat damage before reuse.",
-    "Check for mastic or adhesive residues on pipe joints that may require hazardous waste handling."
   ]
 }

@@ -1,55 +1,99 @@
 {
-  "audit_summary": {
-    "space_type": "interior window bay / balcony access area",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "living room / interior space with window facade",
+  "overall_space_condition": "Good",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Doors & Portals",
-      "item_name": "double-glazed casement window unit (two-leaf configuration)",
-      "estimated_materials": ["PVC-U (polyvinyl chloride), tempered glass, aluminum reinforcement, EPDM seals"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": ["white plastic tilt-and-turn handle", "internal locking mechanism", "hinge pins (likely steel)"],
-        "labels_or_markings": "no visible manufacturer labels or certification badges; window glass has decorative snowflake decals (non-structural)",
-        "connection_type": "hinged, surface-mounted to window frame with concealed hinge pins"
+      "ebkp_h_classification": {
+        "first_level": "E_Facciata_edificio",
+        "second_level": "E03_Infisso_in_facciata",
+        "third_level_code": "E0301_Finestra"
       },
-      "deconstruction_notes": "Remove by disengaging locking mechanism, releasing hinges, and carefully lifting out. Check for sealant or mastic at frame-to-wall interface; may require gentle prying with flat bar. Glass panes are likely laminated or double-glazed—handle with care to avoid breakage.",
-      "bounding_box_2d": [48, 135, 925, 920]
+      "component_name": "Double-glazed window unit with PVC frame, casement type, two sashes per unit",
+      "geometry_estimate": "approx. 1.78 m (width) x 1.50 m (height) for the entire window assembly (two units side by side)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip mounting brackets from the window frame and remove from the opening. Hinges and locking mechanisms are accessible from the interior. Sealant may need to be cut or removed carefully to avoid frame damage."
+      },
+      "observed_anomalies": [
+        "minor water droplets on glass surface (likely condensation or rain)",
+        "white decorative snowflake stickers on right window pane",
+        "slight surface abrasion on frame edges (likely from cleaning or handling)"
+      ],
+      "technical_features": {
+        "hardware_present": [
+          "white plastic handle (casement operation)",
+          "multi-point locking system (visible hinges and lock points)",
+          "window stopper or limit switch (small white box above left window)"
+        ],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [38, 135, 935, 920]
     },
     {
       "component_id": "comp_02",
-      "category": "Finishes & Coverings",
-      "item_name": "interior window sill (likely PVC or painted wood)",
-      "estimated_materials": ["PVC-U or painted MDF/wood composite"],
-      "salvage_tier": "refurbish_reuse",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
+      },
+      "component_name": "White horizontal slat ceiling (plasterboard or PVC profile system)",
+      "geometry_estimate": "approx. 2.50 m x 1.00 m (visible section)",
+      "conditions": {
+        "aesthetics_condition": "As new",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove by unscrewing or unclipping slats from supporting metal or wooden framework. Care should be taken to avoid damaging adjacent components."
+      },
+      "observed_anomalies": [],
       "technical_features": {
         "hardware_present": [],
-        "labels_or_markings": "no visible markings",
-        "connection_type": "adhered or dry-fitted to window frame"
+        "labels_or_markings": "none"
       },
-      "deconstruction_notes": "Remove by gently prying from frame; may be glued with silicone or acrylic sealant. Clean and sand for refinishing if surface is intact.",
-      "bounding_box_2d": [48, 820, 925, 950]
+      "bounding_box_2d": [0, 0, 999, 140]
     },
     {
       "component_id": "comp_03",
-      "category": "Finishes & Coverings",
-      "item_name": "ceiling soffit with horizontal slats (likely PVC or painted wood)",
-      "estimated_materials": ["PVC-U or painted wood"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": [],
-        "labels_or_markings": "no visible markings",
-        "connection_type": "screwed or nailed to ceiling joists"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0105_Porta_interna"
       },
-      "deconstruction_notes": "Remove by unscrewing or prying slats from backing; check for moisture damage or mold at joints.",
-      "bounding_box_2d": [0, 0, 999, 140]
+      "component_name": "Interior door frame (partially visible on left edge)",
+      "geometry_estimate": "approx. 0.20 m (width) x 2.00 m (height)",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove hinges and door stoppers before detaching frame from wall. Check for any sealant or adhesive at the wall interface."
+      },
+      "observed_anomalies": [
+        "minor paint chipping at the top corner"
+      ],
+      "technical_features": {
+        "hardware_present": [
+          "door hinge (partially visible)"
+        ],
+        "labels_or_markings": "none"
+      },
+      "bounding_box_2d": [0, 100, 45, 999]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify presence of legacy sealants or adhesives at window frame-to-wall interface—may contain VOCs or formaldehyde; test if necessary.",
-    "Inspect window glass for laminated safety glazing (PVB interlayer) or low-emissivity coatings—may affect recycling value.",
-    "Check for hidden insulation or mastic behind window frame—potential for asbestos or CFC-based foams in older builds (though this unit appears modern)."
   ]
 }

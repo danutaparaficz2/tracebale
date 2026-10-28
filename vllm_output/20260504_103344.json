@@ -1,126 +1,304 @@
 {
-  "audit_summary": {
-    "space_type": "lecture hall / classroom",
-    "overall_condition": "Good"
-  },
-  "salvageable_components": [
+  "space_type": "lecture hall / classroom",
+  "overall_space_condition": "Good",
+  "components": [
     {
       "component_id": "comp_01",
-      "category": "Finishes & Coverings",
-      "item_name": "acoustic ceiling tile grid system",
-      "estimated_materials": ["concrete", "aggregate", "cementitious matrix"],
-      "salvage_tier": "material_recycling",
-      "technical_features": {
-        "hardware_present": ["suspended grid hangers", "metal cross-tees"],
-        "labels_or_markings": "no visible manufacturer markings; uniform gray finish with geometric voids",
-        "connection_type": "suspended grid system with wire hangers"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G04_Rivestimento_di_soffitti",
+        "third_level_code": "G0402_Rivestimento_di_soffitti"
       },
-      "deconstruction_notes": "Remove tiles carefully to avoid dust; grid system may be reused if structurally sound; test for asbestos if pre-1980s construction",
-      "bounding_box_2d": [0, 0, 999, 412]
+      "component_name": "Concrete acoustic ceiling tiles with geometric pattern",
+      "geometry_estimate": "approx. 0.60 m x 0.60 m per tile, grid covering entire ceiling",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Tiles are likely suspended via metal hangers or clips; remove hangers first, then lift tiles out of grid"
+      },
+      "observed_anomalies": [
+        "minor surface dust accumulation",
+        "slight discoloration in some tiles"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 0, 999, 410]
     },
     {
       "component_id": "comp_02",
-      "category": "Casework & Millwork",
-      "item_name": "wooden classroom tables (rectangular, pedestal base)",
-      "estimated_materials": ["laminate-faced particleboard", "steel pedestal", "powder-coated steel base"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["steel pedestal legs", "adjustable foot glides", "table top edge banding"],
-        "labels_or_markings": "no visible labels; uniform light wood veneer finish",
-        "connection_type": "bolted pedestal to tabletop"
+      "ebkp_h_classification": {
+        "first_level": "E_Facciata_edificio",
+        "second_level": "E03_Infisso_in_facciata",
+        "third_level_code": "E0301_Finestra"
       },
-      "deconstruction_notes": "Disassemble by removing bolts from pedestal; inspect for warping or delamination; clean and refinish for reuse",
-      "bounding_box_2d": [0, 580, 999, 900]
+      "component_name": "Large vertical sliding windows with white vertical blinds",
+      "geometry_estimate": "approx. 2.50 m x 2.00 m per window unit",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove window frame from wall with screws; blinds can be detached from frame with clips"
+      },
+      "observed_anomalies": [
+        "minor surface scratches on glass",
+        "dust on blinds"
+      ],
+      "technical_features": {
+        "hardware_present": ["vertical blinds with pull-cord mechanism"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 280, 150, 710]
     },
     {
       "component_id": "comp_03",
-      "category": "Casework & Millwork",
-      "item_name": "black office chairs (stackable, metal frame)",
-      "estimated_materials": ["steel frame", "polypropylene shell", "fabric upholstery"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["casters", "gas lift mechanism", "adjustable backrest", "armrests"],
-        "labels_or_markings": "no visible branding; standard institutional design",
-        "connection_type": "welded frame, bolted components"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0105_Porta_interna"
       },
-      "deconstruction_notes": "Inspect for broken casters or gas lift; clean upholstery; replace if damaged; stack for transport",
-      "bounding_box_2d": [0, 580, 999, 999]
+      "component_name": "Interior door with yellow frame leading to adjacent space",
+      "geometry_estimate": "approx. 0.90 m x 2.10 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove hinges and door stop; door can be lifted off frame"
+      },
+      "observed_anomalies": [
+        "minor scuff marks on door edge",
+        "light wear on door handle"
+      ],
+      "technical_features": {
+        "hardware_present": ["door handle", "hinges", "door stop"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [365, 410, 600, 600]
     },
     {
       "component_id": "comp_04",
-      "category": "Finishes & Coverings",
-      "item_name": "parquet flooring (herringbone pattern)",
-      "estimated_materials": ["hardwood", "varnish finish"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": ["tongue-and-groove joints", "subfloor fasteners"],
-        "labels_or_markings": "no visible labels; consistent grain and finish",
-        "connection_type": "nail-down or glue-down to subfloor"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G03_Pavimento_interno",
+        "third_level_code": "G0302_Pavimento_in_legno"
       },
-      "deconstruction_notes": "Carefully pry up planks using a floor scraper; avoid chipping; sand and refinish for reuse",
-      "bounding_box_2d": [0, 580, 999, 900]
+      "component_name": "Parquet wooden floor with herringbone pattern",
+      "geometry_estimate": "covers entire floor area, approx. 8.00 m x 10.00 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Complex",
+        "notes": "Floor likely nailed or glued to subfloor; requires careful prying or lifting to avoid damage"
+      },
+      "observed_anomalies": [
+        "minor surface scratches",
+        "light wear in high-traffic areas"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 580, 999, 999]
     },
     {
       "component_id": "comp_05",
-      "category": "Lighting & Fixtures",
-      "item_name": "spherical pendant lights (Bauhaus-style)",
-      "estimated_materials": ["aluminum", "glass diffuser", "electrical wiring"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": ["ceiling canopy", "suspension cable", "socket base"],
-        "labels_or_markings": "no visible labels; minimalist design",
-        "connection_type": "suspended via cable from ceiling grid"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G01_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0101_Parete_divisoria_interna"
       },
-      "deconstruction_notes": "Disconnect electrical supply; remove canopy and cable; inspect for corrosion or damage",
-      "bounding_box_2d": [158, 215, 732, 412]
+      "component_name": "Interior plastered walls with white paint",
+      "geometry_estimate": "approx. 3.00 m height, full perimeter of room",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Direct integral connection",
+        "difficulty": "Complex",
+        "notes": "Walls are structural; removal requires demolition, not salvage"
+      },
+      "observed_anomalies": [
+        "minor paint chipping near baseboards",
+        "small surface cracks in plaster"
+      ],
+      "technical_features": {
+        "hardware_present": [],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 300, 999, 700]
     },
     {
       "component_id": "comp_06",
-      "category": "Partitions & Enclosures",
-      "item_name": "vertical blinds (window coverings)",
-      "estimated_materials": ["PVC or aluminum slats", "fabric or vinyl tape", "metal headrail"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["headrail brackets", "cord system", "slat connectors"],
-        "labels_or_markings": "no visible branding; white finish",
-        "connection_type": "surface-mounted to window frame"
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D01_Impianto_elettrico",
+        "third_level_code": "D0101_Impianto_elettrico"
       },
-      "deconstruction_notes": "Remove from headrail; clean slats; inspect for warping or discoloration; replace cords if frayed",
-      "bounding_box_2d": [0, 280, 965, 730]
+      "component_name": "Suspended spherical pendant lights",
+      "geometry_estimate": "approx. 0.30 m diameter each",
+      "conditions": {
+        "aesthetics_condition": "As new",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew or unclip from ceiling mount; disconnect electrical wiring"
+      },
+      "observed_anomalies": [
+        "minor dust on surface"
+      ],
+      "technical_features": {
+        "hardware_present": ["suspension cable", "ceiling canopy"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [155, 130, 730, 410]
     },
     {
       "component_id": "comp_07",
-      "category": "Art & Decorative Elements",
-      "item_name": "relief sculptures (wall-mounted, plaster or stone)",
-      "estimated_materials": ["plaster", "gypsum", "concrete"],
-      "salvage_tier": "direct_reuse",
-      "technical_features": {
-        "hardware_present": ["wall anchors", "mounting brackets"],
-        "labels_or_markings": "no visible labels; classical figures depicted",
-        "connection_type": "surface-mounted with mechanical fasteners"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G02_Parete_divisoria_porta_interna_portone_interno",
+        "third_level_code": "G0201_Parete_divisoria_interna"
       },
-      "deconstruction_notes": "Carefully remove with support; inspect for cracks or flaking; clean and restore if needed",
-      "bounding_box_2d": [180, 445, 235, 600]
+      "component_name": "Wall-mounted bas-relief sculptures",
+      "geometry_estimate": "approx. 0.80 m x 0.60 m each",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functionality does not appear to be compromised",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Remove mounting screws or brackets from wall; handle with care"
+      },
+      "observed_anomalies": [
+        "minor surface dust",
+        "light discoloration"
+      ],
+      "technical_features": {
+        "hardware_present": ["wall brackets", "screws"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [175, 440, 235, 600]
     },
     {
       "component_id": "comp_08",
-      "category": "Casework & Millwork",
-      "item_name": "lectern or teacher's desk (wooden, elevated platform)",
-      "estimated_materials": ["solid wood", "steel support frame"],
-      "salvage_tier": "refurbish_reuse",
-      "technical_features": {
-        "hardware_present": ["drawer pulls", "metal legs", "adjustable feet"],
-        "labels_or_markings": "no visible labels; light wood finish",
-        "connection_type": "bolted frame to tabletop"
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G05_Mobili_e_arredi",
+        "third_level_code": "G0501_Mobili_e_arredi"
       },
-      "deconstruction_notes": "Disassemble by removing bolts; inspect for wood rot or moisture damage; sand and refinish",
-      "bounding_box_2d": [410, 525, 565, 610]
+      "component_name": "Wooden tables with black metal legs",
+      "geometry_estimate": "approx. 1.80 m x 0.70 m per table",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Tables likely bolted to legs; unscrew bolts to separate"
+      },
+      "observed_anomalies": [
+        "minor surface scratches on tabletops",
+        "light wear on leg joints"
+      ],
+      "technical_features": {
+        "hardware_present": ["black metal legs", "bolted connections"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 580, 999, 999]
+    },
+    {
+      "component_id": "comp_09",
+      "ebkp_h_classification": {
+        "first_level": "G_Finitura_interna_edificio",
+        "second_level": "G05_Mobili_e_arredi",
+        "third_level_code": "G0501_Mobili_e_arredi"
+      },
+      "component_name": "Black office chairs with metal frames",
+      "geometry_estimate": "approx. 0.60 m x 0.60 m x 0.90 m",
+      "conditions": {
+        "aesthetics_condition": "Minor signs of deterioration/wear",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Chairs can be disassembled by removing seat from frame; hardware likely screws or clips"
+      },
+      "observed_anomalies": [
+        "minor fabric wear on seat",
+        "light surface scratches on frame"
+      ],
+      "technical_features": {
+        "hardware_present": ["metal frame", "seat attachment screws"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [0, 580, 999, 999]
+    },
+    {
+      "component_id": "comp_10",
+      "ebkp_h_classification": {
+        "first_level": "D_Impianti_tecnici_edificio",
+        "second_level": "D04_Impianto_di_illuminazione",
+        "third_level_code": "D0401_Impianto_di_illuminazione"
+      },
+      "component_name": "Ceiling-mounted projector",
+      "geometry_estimate": "approx. 0.40 m x 0.30 m x 0.15 m",
+      "conditions": {
+        "aesthetics_condition": "As new",
+        "functionality_condition": "Functional",
+        "pollutants_flag": "Unlikely",
+        "pollutant_details": "none"
+      },
+      "disassembly": {
+        "connection_type": "Connection with added elements (mechanical fasteners)",
+        "difficulty": "Simple",
+        "notes": "Unscrew from ceiling mount; disconnect power and signal cables"
+      },
+      "observed_anomalies": [
+        "minor dust on casing"
+      ],
+      "technical_features": {
+        "hardware_present": ["ceiling mount", "cable management"],
+        "labels_or_markings": "none visible"
+      },
+      "bounding_box_2d": [440, 320, 475, 360]
     }
-  ],
-  "hazard_and_diagnostic_flags": [
-    "Verify presence of asbestos in ceiling tiles (pre-1980s construction common); test if necessary",
-    "Inspect adhesive or mastic used in flooring installation for VOCs or hazardous compounds",
-    "Check for lead-based paint on wall-mounted fixtures or sculptures if pre-1978 building",
-    "Assess electrical wiring in pendant lights for insulation degradation or fire risk"
   ]
 }
