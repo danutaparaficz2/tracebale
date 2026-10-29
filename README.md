@@ -117,6 +117,112 @@ matches their components against the local SUPSI catalogs in
 The final workbook mirrors the SUPSI inventory format and is written to
 `TRACEABLE_Inventory_new.xlsx` (or the path passed with `--export-excel`).
 
+## Quick start: which workflow do I run?
+
+There are two independent workflows:
+
+| Workflow | Entry points | Output |
+| --- | --- | --- |
+| A. vLLM + SUPSI knowledge base (**with or without** Depth Anything) | `vLLM.py`, `supsi_kb_2.py` | Excel inventory |
+| B. DINO + CLIP + SAM local detection/segmentation | `main.py`, `tracebale` CLI | Annotated PNGs / JSON |
+
+All commands are run with the project virtual environment active
+(`source .venv/bin/activate`).
+
+### A1. vLLM + `supsi_kb_2.py` **without** Depth Anything
+
+Geometry in the inventory comes from the VLM's text `geometry_estimate`.
+
+```bash
+# 1. Start the vLLM server (Qwen/Qwen3-VL-32B-Instruct, http://localhost:8000/v1)
+# 2. Generate one JSON report per image in tracebale/vllm_output/
+python vLLM.py
+
+# 3. Apply the SUPSI rules/database and export the workbook
+python supsi_kb_2.py \
+  --vllm-dir tracebale/vllm_output \
+  --export-excel TRACEABLE_Inventory_new.xlsx
+```
+
+Install the export dependencies once: `python -m pip install pandas openpyxl`.
+Add `--rebuild-db` to regenerate `supsi_kb.sqlite`. The original
+`supsi_kb.py` can be used for this variant too (same `--vllm-dir` and
+`--export-excel` flags).
+
+### A2. vLLM + `supsi_kb_2.py` **with** Depth Anything V2 (metric size)
+
+Steps 1–2 are identical. Step 3 additionally receives the images and the metric
+checkpoint, so each component's width/height/thickness is measured in 3D and
+written to the `Geometry` column (suffix `measured via Metric Depth`).
+
+```bash
+python -m pip install open3d torch numpy
+export PYTHONPATH="/Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth:$PYTHONPATH"
+
+python supsi_kb_2.py \
+  --vllm-dir tracebale/vllm_output \
+  --image-dir tracebale/Images \
+  --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
+  --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
+```
+
+Both `--image-dir` and an existing `--depth-weights` file are required to
+enable depth; if either is missing, or a single component fails, the run falls
+back to the VLM geometry for that component and continues. A single object can
+be measured on its own with:
+
+```bash
+python estimate_metric.py --image Images/<photo>.jpg --bbox YMIN XMIN YMAX XMAX \
+  --weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth
+```
+
+(`--bbox` is normalized `[ymin xmin ymax xmax]` on a 0–1000 scale.)
+
+### B. DINO + CLIP + SAM pipeline (`SAM_CLIP_pipline/`)
+
+This pipeline finds and labels components locally, with no vLLM server.
+Model weights are downloaded from Hugging Face on first use.
+
+```bash
+cd tracebale
+python -m pip install torch torchvision transformers pillow pillow-heif numpy
+```
+
+**B1. Grounding DINO + SAM (`main.py`)** — Grounding DINO
+(`IDEA-Research/grounding-dino-tiny`) detects boxes for the text labels and
+SAM segments each box. Labels and thresholds are constants at the top of
+`main.py` (`LABELS = ["door", "window"]`, `BOX_THRESHOLD`, `TEXT_THRESHOLD`,
+`MIN_AREA`).
+
+```bash
+python main.py                      # every image in Images/ -> output/<name>.png
+python main.py Images/photo.jpg     # one image
+```
+
+**B2. SAM + CLIP (`tracebale` CLI)** — SAM proposes masks over the whole image
+and CLIP assigns each one of your labels (zero-shot).
+
+```bash
+python -m SAM_CLIP_pipline.cli Images/photo.jpg --labels "door,window,radiator" \
+  --out annotated.png --min-score 0.3 --min-area 500
+```
+
+The CLI prints JSON (label, score, box, area) and `--out` saves the annotated
+image. Use `--sam-model` / `--clip-model` for other Hugging Face models. Or from
+Python:
+
+```python
+from PIL import Image
+from SAM_CLIP_pipline.pipeline import GroundedSegmenter, ComponentRecognizer, annotate
+
+dets = GroundedSegmenter(["door", "window"]).recognize(Image.open("photo.jpg"))   # DINO + SAM
+dets = ComponentRecognizer(["door", "window"]).recognize(Image.open("photo.jpg"))  # SAM + CLIP
+annotate(Image.open("photo.jpg"), dets).save("annotated.png")
+```
+
+Zero-shot results can include false positives (there is no "neither" label), so
+review them manually. Details are in the sections below.
+
 ## Run the complete current stack
 
 Run commands from the project parent directory, which contains `vLLM.py`,
