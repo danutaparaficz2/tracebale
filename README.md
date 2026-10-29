@@ -1,5 +1,18 @@
 # TRACEABLE
 
+## Repository layout
+
+```text
+vllm_pipeline/        Qwen-VL audit (vLLM.py), SUPSI rules/DB (supsi_kb_2.py), metric depth (estimate_metric.py), vllm_output/
+sam_clip_pipeline/    Grounding DINO + SAM + CLIP package (main.py, cli.py, pipeline.py, ...)
+scripts/              Helpers that generate reports and plots (make_report.py, make_detection_report.py, plot_bboxes.py)
+reports/              Generated .docx/.xlsx reports, bbox_images/, output_of_SAM_doors_windows/
+web/                  Floor-plan website (index.html, floor_plan_assets/), deployed by .github/workflows/pages.yml
+tests/  Images/  01_Data/  models/   Tests, survey photos, reference data, model weights
+```
+
+Run every command from the repository root. `Depth-Anything-V2/` lives next to this repo.
+
 TRACEABLE turns raw building-survey photographs into an engineering inventory
 for circular construction assessment. The current workflow combines local
 vision-language auditing, single-view metric-depth estimation, and a local
@@ -48,23 +61,23 @@ The end-to-end processing pipeline operates in three stages:
                  [TRACEABLE_Inventory_new.xlsx]
 ```
 
-### Stage 1: Perception and semantic audit (`vLLM.py`)
+### Stage 1: Perception and semantic audit (`vllm_pipeline/vLLM.py`)
 
-- **Input:** RGB survey photographs from `tracebale/Images/`.
+- **Input:** RGB survey photographs from `Images/`.
 - **Model:** Local `Qwen/Qwen3-VL-32B-Instruct` exposed through an
   OpenAI-compatible vLLM endpoint on the Spark compute environment.
 - **Task:** The VLM reviews each scene using a Swiss circular-construction
   audit prompt. It identifies salvageable components, condition, visible
   defects, eBKP-H classifications, connection types, hardware, and
   disassembly guidance.
-- **Output:** One JSON report per image in `tracebale/vllm_output/`.
+- **Output:** One JSON report per image in `vllm_pipeline/vllm_output/`.
   Bounding boxes use normalized `[ymin, xmin, ymax, xmax]` coordinates on a
   0–1000 scale.
 
 The VLM output is an audit hypothesis and should be reviewed by an engineer.
 It is not a calibrated measurement or a substitute for an on-site inspection.
 
-### Stage 2: 3D metric-size estimation (`estimate_metric.py`)
+### Stage 2: 3D metric-size estimation (`vllm_pipeline/estimate_metric.py`)
 
 The metric-enabled SUPSI runner combines the original RGB photograph with the
 VLM bounding box:
@@ -92,7 +105,7 @@ box quality, EXIF/calibration data, and scene geometry.
 
 ### Stage 3: Engineering ontology and lifespan reasoning
 
-The metric-enabled `supsi_kb_2.py` runner reads the VLM JSON reports and
+The metric-enabled `vllm_pipeline/supsi_kb_2.py` runner reads the VLM JSON reports and
 matches their components against the local SUPSI catalogs in
 `supsi_kb.sqlite`:
 
@@ -123,33 +136,31 @@ There are two independent workflows:
 
 | Workflow | Entry points | Output |
 | --- | --- | --- |
-| A. vLLM + SUPSI knowledge base (**with or without** Depth Anything) | `vLLM.py`, `supsi_kb_2.py` | Excel inventory |
-| B. DINO + CLIP + SAM local detection/segmentation | `main.py`, `tracebale` CLI | Annotated PNGs / JSON |
+| A. vLLM + SUPSI knowledge base (**with or without** Depth Anything) | `vLLM.py`, `vllm_pipeline/supsi_kb_2.py` | Excel inventory |
+| B. DINO + CLIP + SAM local detection/segmentation | `sam_clip_pipeline/main.py`, `tracebale` CLI | Annotated PNGs / JSON |
 
 All commands are run with the project virtual environment active
 (`source .venv/bin/activate`).
 
-### A1. vLLM + `supsi_kb_2.py` **without** Depth Anything
+### A1. vLLM + `vllm_pipeline/supsi_kb_2.py` **without** Depth Anything
 
 Geometry in the inventory comes from the VLM's text `geometry_estimate`.
 
 ```bash
 # 1. Start the vLLM server (Qwen/Qwen3-VL-32B-Instruct, http://localhost:8000/v1)
-# 2. Generate one JSON report per image in tracebale/vllm_output/
-python vLLM.py
+# 2. Generate one JSON report per image in vllm_pipeline/vllm_output/
+python vllm_pipeline/vLLM.py
 
 # 3. Apply the SUPSI rules/database and export the workbook
-python supsi_kb_2.py \
-  --vllm-dir tracebale/vllm_output \
+python vllm_pipeline/supsi_kb_2.py \
+  --vllm-dir vllm_pipeline/vllm_output \
   --export-excel TRACEABLE_Inventory_new.xlsx
 ```
 
 Install the export dependencies once: `python -m pip install pandas openpyxl`.
-Add `--rebuild-db` to regenerate `supsi_kb.sqlite`. The original
-`supsi_kb.py` can be used for this variant too (same `--vllm-dir` and
-`--export-excel` flags).
+Add `--rebuild-db` to regenerate `supsi_kb.sqlite`.
 
-### A2. vLLM + `supsi_kb_2.py` **with** Depth Anything V2 (metric size)
+### A2. vLLM + `vllm_pipeline/supsi_kb_2.py` **with** Depth Anything V2 (metric size)
 
 Steps 1–2 are identical. Step 3 additionally receives the images and the metric
 checkpoint, so each component's width/height/thickness is measured in 3D and
@@ -159,9 +170,9 @@ written to the `Geometry` column (suffix `measured via Metric Depth`).
 python -m pip install open3d torch numpy
 export PYTHONPATH="/Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth:$PYTHONPATH"
 
-python supsi_kb_2.py \
-  --vllm-dir tracebale/vllm_output \
-  --image-dir tracebale/Images \
+python vllm_pipeline/supsi_kb_2.py \
+  --vllm-dir vllm_pipeline/vllm_output \
+  --image-dir Images \
   --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
 ```
@@ -172,38 +183,37 @@ back to the VLM geometry for that component and continues. A single object can
 be measured on its own with:
 
 ```bash
-python estimate_metric.py --image Images/<photo>.jpg --bbox YMIN XMIN YMAX XMAX \
+python vllm_pipeline/estimate_metric.py --image Images/<photo>.jpg --bbox YMIN XMIN YMAX XMAX \
   --weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth
 ```
 
 (`--bbox` is normalized `[ymin xmin ymax xmax]` on a 0–1000 scale.)
 
-### B. DINO + CLIP + SAM pipeline (`SAM_CLIP_pipline/`)
+### B. DINO + CLIP + SAM pipeline (`sam_clip_pipeline/`)
 
 This pipeline finds and labels components locally, with no vLLM server.
 Model weights are downloaded from Hugging Face on first use.
 
 ```bash
-cd tracebale
 python -m pip install torch torchvision transformers pillow pillow-heif numpy
 ```
 
-**B1. Grounding DINO + SAM (`main.py`)** — Grounding DINO
+**B1. Grounding DINO + SAM (`sam_clip_pipeline/main.py`)** — Grounding DINO
 (`IDEA-Research/grounding-dino-tiny`) detects boxes for the text labels and
 SAM segments each box. Labels and thresholds are constants at the top of
-`main.py` (`LABELS = ["door", "window"]`, `BOX_THRESHOLD`, `TEXT_THRESHOLD`,
+`sam_clip_pipeline/main.py` (`LABELS = ["door", "window"]`, `BOX_THRESHOLD`, `TEXT_THRESHOLD`,
 `MIN_AREA`).
 
 ```bash
-python main.py                      # every image in Images/ -> output/<name>.png
-python main.py Images/photo.jpg     # one image
+python -m sam_clip_pipeline.main                      # every image in Images/ -> output/<name>.png
+python -m sam_clip_pipeline.main Images/photo.jpg     # one image
 ```
 
 **B2. SAM + CLIP (`tracebale` CLI)** — SAM proposes masks over the whole image
 and CLIP assigns each one of your labels (zero-shot).
 
 ```bash
-python -m SAM_CLIP_pipline.cli Images/photo.jpg --labels "door,window,radiator" \
+python -m sam_clip_pipeline.cli Images/photo.jpg --labels "door,window,radiator" \
   --out annotated.png --min-score 0.3 --min-area 500
 ```
 
@@ -213,7 +223,7 @@ Python:
 
 ```python
 from PIL import Image
-from SAM_CLIP_pipline.pipeline import GroundedSegmenter, ComponentRecognizer, annotate
+from sam_clip_pipeline.pipeline import GroundedSegmenter, ComponentRecognizer, annotate
 
 dets = GroundedSegmenter(["door", "window"]).recognize(Image.open("photo.jpg"))   # DINO + SAM
 dets = ComponentRecognizer(["door", "window"]).recognize(Image.open("photo.jpg"))  # SAM + CLIP
@@ -226,7 +236,7 @@ review them manually. Details are in the sections below.
 ## Run the complete current stack
 
 Run commands from the project parent directory, which contains `vLLM.py`,
-`supsi_kb.py`, `supsi_kb_2.py`, and `.venv`.
+`vllm_pipeline/supsi_kb_2.py`, and `.venv`.
 
 ### 1. Generate VLM audits
 
@@ -234,30 +244,30 @@ Start the local vLLM server first, then run:
 
 ```bash
 source .venv/bin/activate
-python vLLM.py
+python vllm_pipeline/vLLM.py
 ```
 
 The batch uses valid existing JSON reports by default. To rerun from a
 specific one-based image index, including reports that already exist:
 
 ```bash
-OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vLLM.py
+OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vllm_pipeline/vLLM.py
 ```
 
 The image order is the case-insensitive sorted order of supported files in
-`tracebale/Images/`. Requests have a five-minute default timeout and a timed
+`Images/`. Requests have a five-minute default timeout and a timed
 out request stops the batch without overwriting its previous JSON report.
 
 ### 2. Measure metric dimensions and export the inventory
 
-The metric-enabled CLI is currently `supsi_kb_2.py`:
+The metric-enabled CLI is currently `vllm_pipeline/supsi_kb_2.py`:
 
 ```bash
 export PYTHONPATH="/Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth:$PYTHONPATH"
 
-python supsi_kb_2.py \
-  --vllm-dir /Users/danuta.paraficz/PyProjects/Tracable/tracebale/vllm_output \
-  --image-dir /Users/danuta.paraficz/PyProjects/Tracable/tracebale/Images \
+python vllm_pipeline/supsi_kb_2.py \
+  --vllm-dir vllm_pipeline/vllm_output \
+  --image-dir Images \
   --depth-weights /Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth/checkpoints/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_new.xlsx
 ```
@@ -273,14 +283,11 @@ must be available at the paths supplied above. If metric-depth inputs are not
 provided, or a component's metric estimate fails, the runner continues with
 the VLM geometry estimate and reports the failure.
 
-### `supsi_kb.py` and `supsi_kb_2.py`
+### `vllm_pipeline/supsi_kb_2.py`
 
-`supsi_kb.py` is the original rules/database exporter. It reads
-`vllm_output/*.json` and writes the SUPSI workbook, but its current CLI does
-not expose the metric-depth `--image-dir` and `--depth-weights` flags.
-`supsi_kb_2.py` is the extended implementation that wires those flags to
-`estimate_metric.py`. Keep the two entry points distinct until the
-metric-enabled implementation is promoted to the canonical filename.
+The rules/database exporter. It reads `vllm_output/*.json` and writes the SUPSI
+workbook; with `--image-dir` and `--depth-weights` it also measures metric
+dimensions through `estimate_metric.py`.
 
 ## Deprecated legacy SAM/CLIP pipeline
 
@@ -375,7 +382,7 @@ path explicitly, but that class is not used by the default CLI or the public
 
 ## Run the included images
 
-Run `python main.py` to process every supported image in `Images/`. Each
+Run `python -m sam_clip_pipeline.main` to process every supported image in `Images/`. Each
 annotated result is saved to `output/` using the input image's filename and a
 `.png` extension. Pass an image path to process only that image; it uses the
 same filename-based output naming.
@@ -401,13 +408,13 @@ Tests: `pip install pytest numpy pillow && pytest` (pure-logic tests need no mod
 
 ## Qwen-VL / vLLM analysis
 
-`../vLLM.py` sends the photographs in `Images/` to an OpenAI-compatible local
+`vllm_pipeline/vLLM.py` sends the photographs in `Images/` to an OpenAI-compatible local
 vLLM server running `Qwen/Qwen3-VL-32B-Instruct`. The server must be running
 before the batch script is started. By default the script uses:
 
 - API endpoint: `http://localhost:8000/v1`
-- Input directory: `tracebale/Images/`
-- JSON output directory: `tracebale/vllm_output/`
+- Input directory: `Images/`
+- JSON output directory: `vllm_pipeline/vllm_output/`
 - Maximum image side: 1568 pixels
 - Maximum response length: 4000 tokens
 - Request timeout: 300 seconds
@@ -422,7 +429,7 @@ python -m pip install openai requests pillow-heif
 Run the complete batch from the project parent directory:
 
 ```bash
-python vLLM.py
+python vllm_pipeline/vLLM.py
 ```
 
 The script performs an endpoint health check, normalizes EXIF orientation,
@@ -449,7 +456,7 @@ For example, to rerun image 9 and all following images, even when JSON
 outputs already exist:
 
 ```bash
-OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vLLM.py
+OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vllm_pipeline/vLLM.py
 ```
 
 The image order is the case-insensitive sorted order of supported files in
@@ -458,12 +465,12 @@ batch without overwriting the existing report for that image.
 
 ## SUPSI knowledge-base export
 
-`supsi_kb.py` reads the JSON reports produced by `vLLM.py`, evaluates their
+`vllm_pipeline/supsi_kb_2.py` reads the JSON reports produced by `vLLM.py`, evaluates their
 components against the SUPSI WBS, RSL, and anomaly catalogs, and exports an
 inventory workbook. The exporter writes the `Inventory` worksheet to
 `TRACEABLE_Inventory_AI_Generated.xlsx` by default.
 
-From the project parent directory (the directory containing `supsi_kb.py`),
+From the project parent directory (the directory containing `vllm_pipeline/`),
 install the Excel-processing dependencies in the project virtual environment:
 
 ```bash
@@ -474,8 +481,8 @@ python -m pip install pandas openpyxl
 Run the knowledge-base export from that same directory:
 
 ```bash
-python supsi_kb.py \
-  --vllm-dir tracebale/vllm_output \
+python vllm_pipeline/supsi_kb_2.py \
+  --vllm-dir vllm_pipeline/vllm_output \
   --export-excel TRACEABLE_Inventory_AI_Generated.xlsx
 ```
 
@@ -491,7 +498,7 @@ step.
 
 ## Optional active 3D metric-depth measurements
 
-`supsi_kb_2.py` adds an optional single-image 3D measurement step. When both
+`vllm_pipeline/supsi_kb_2.py` adds an optional single-image 3D measurement step. When both
 `--image-dir` and `--depth-weights` are supplied, it:
 
 1. Matches each vLLM JSON report to the RGB image with the same filename stem.
@@ -523,14 +530,14 @@ export PYTHONPATH="/path/to/Depth-Anything-V2:$PYTHONPATH"
 Run the extended export from the project parent directory:
 
 ```bash
-python supsi_kb_2.py \
-  --vllm-dir tracebale/vllm_output \
-  --image-dir tracebale/Images \
+python vllm_pipeline/supsi_kb_2.py \
+  --vllm-dir vllm_pipeline/vllm_output \
+  --image-dir Images \
   --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
 ```
 
 Without both `--image-dir` and a valid `--depth-weights` path,
-`supsi_kb_2.py` continues using the VLM-provided geometry estimate. Individual
+`vllm_pipeline/supsi_kb_2.py` continues using the VLM-provided geometry estimate. Individual
 metric-depth failures are reported and do not prevent the remaining reports
 from being exported.

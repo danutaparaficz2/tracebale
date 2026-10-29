@@ -9,7 +9,7 @@ dependencies = ["numpy", "pillow", "pillow-heif", "torch", "torchvision", "trans
 test = ["pytest"]
 
 [project.scripts]
-tracebale = "tracebale.cli:main"
+tracebale = "sam_clip_pipeline.cli:main"
 
 [tool.setuptools]
-packages = ["tracebale"]
+packages = ["sam_clip_pipeline"]

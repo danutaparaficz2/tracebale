@@ -5,9 +5,9 @@ import sys
 import numpy as np
 from PIL import Image
 
-from tracebale import ComponentRecognizer
-from SAM_CLIP_pipline.pipeline import annotate, crop_segment, mask_to_box, softmax
-from main import _find_images, _output_path
+from sam_clip_pipeline import ComponentRecognizer
+from sam_clip_pipeline.pipeline import annotate, crop_segment, mask_to_box, softmax
+from sam_clip_pipeline.main import _find_images, _output_path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]

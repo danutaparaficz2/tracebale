@@ -13,10 +13,11 @@ from pillow_heif import register_heif_opener
 
 register_heif_opener()
 
-ROOT = Path(__file__).parent / "tracebale"
+ROOT = Path(__file__).resolve().parents[1]
+REPORTS_DIR = ROOT / "reports"
 IMAGE_DIR = ROOT / "Images"
-RESULT_DIR = ROOT / "output"
-REPORT_PATH = ROOT / "detection_report.docx"
+RESULT_DIR = ROOT / "reports" / "output_of_SAM_doors_windows"
+REPORT_PATH = REPORTS_DIR / "detection_report.docx"
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".heic"}
 IMAGE_WIDTH_CM = 8.7
 

@@ -27,10 +27,10 @@ jobs:
       - name: Prepare website
         run: |
           mkdir -p _site/floor_plan_assets
-          cp floor_plan.html _site/index.html
-          cp floor_plan_assets/floor-plan.png _site/floor_plan_assets/
-          cp floor_plan_assets/door-204.jpg _site/floor_plan_assets/
-          cp floor_plan_assets/door-204.json _site/floor_plan_assets/
+          cp web/index.html _site/index.html
+          cp web/floor_plan_assets/floor-plan.png _site/floor_plan_assets/
+          cp web/floor_plan_assets/door-204.jpg _site/floor_plan_assets/
+          cp web/floor_plan_assets/door-204.json _site/floor_plan_assets/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

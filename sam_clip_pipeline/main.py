@@ -1,13 +1,13 @@
-"""Run the whole pipeline: python main.py [image]"""
+"""Run the DINO + SAM pipeline from the repo root: python -m sam_clip_pipeline.main [image]"""
 import sys
 from pathlib import Path
 
 from PIL import Image
 from pillow_heif import register_heif_opener
 
-from SAM_CLIP_pipline.pipeline import GroundedSegmenter, annotate
+from .pipeline import GroundedSegmenter, annotate
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parents[1]
 IMAGE_DIR = ROOT / "Images"
 IMAGE_SUFFIXES = {
     ".bmp", ".gif", ".heic", ".heif", ".jpeg", ".jpg", ".mpo", ".png",

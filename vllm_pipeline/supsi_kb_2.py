@@ -17,7 +17,8 @@ from typing import Dict, List, Optional, Tuple, Any
 import pandas as pd
 
 
-DB_PATH = Path("supsi_kb.sqlite")
+HERE = Path(__file__).resolve().parent
+DB_PATH = HERE / "supsi_kb.sqlite"
 CURRENT_YEAR = 2026
 
 
@@ -385,7 +386,7 @@ class SupsiRuleEngine:
 # Directory Reader for vLLM Outputs
 # ---------------------------------------------------------------------------
 def process_all_vllm_outputs(
-    output_dir: Path = Path("/Users/danuta.paraficz/PyProjects/Tracable/tracebale/vllm_output"),
+    output_dir: Path = HERE / "vllm_output",
     image_dir: Optional[Path] = None,
     depth_model: Optional[Any] = None,
     install_year_map: Optional[Dict[str, int]] = None,
@@ -448,7 +449,7 @@ def process_all_vllm_outputs(
                     img_cand = Path(image_dir) / f"{image_stem}{ext}"
                     if img_cand.exists():
                         try:
-                            from tracebale.estimate_metric import estimate_component_size
+                            from estimate_metric import estimate_component_size
                             metric_meas = estimate_component_size(str(img_cand), bbox, depth_model)
                         except Exception as err:
                             print(f"Could not calculate metric depth for {image_stem}: {err}")
@@ -519,7 +520,7 @@ def export_reports_to_excel(
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(description="TRACEABLE Knowledge Base & Rule Engine")
-    parser.add_argument("--vllm-dir", default="/Users/danuta.paraficz/PyProjects/Tracable/tracebale/vllm_output",
+    parser.add_argument("--vllm-dir", default=str(HERE / "vllm_output"),
                         help="Directory containing vLLM JSON files")
     parser.add_argument("--image-dir", default=None,
                         help="Directory containing RGB images (optional, triggers metric depth estimation)")
@@ -535,7 +536,7 @@ def main():
     depth_model = None
     if args.depth_weights and Path(args.depth_weights).exists():
         try:
-            from tracebale.estimate_metric import load_metric_depth_model
+            from estimate_metric import load_metric_depth_model
             print(f"Loading Depth Anything V2 model from {args.depth_weights}...")
             depth_model = load_metric_depth_model(checkpoint_path=args.depth_weights)
         except Exception as e:

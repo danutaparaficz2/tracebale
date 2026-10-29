@@ -13,10 +13,11 @@ from pillow_heif import register_heif_opener
 
 register_heif_opener()
 
-ROOT = Path(__file__).parent / "tracebale"
+ROOT = Path(__file__).resolve().parents[1]
+REPORTS_DIR = ROOT / "reports"
 IMAGE_DIR = ROOT / "Images"
-JSON_DIR = ROOT / "vllm_output"
-REPORT_PATH = ROOT / "vllm_report.docx"
+JSON_DIR = ROOT / "vllm_pipeline" / "vllm_output"
+REPORT_PATH = REPORTS_DIR / "vllm_report.docx"
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".heic"}
 IMAGE_WIDTH_CM = 8.0
 
