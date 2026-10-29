@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 from pillow_heif import register_heif_opener
 
-from tracebale.pipeline import GroundedSegmenter, annotate
+from SAM_CLIP_pipline.pipeline import GroundedSegmenter, annotate
 
 ROOT = Path(__file__).parent
 IMAGE_DIR = ROOT / "Images"

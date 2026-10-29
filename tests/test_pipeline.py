@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 
 from tracebale import ComponentRecognizer
-from tracebale.pipeline import annotate, crop_segment, mask_to_box, softmax
+from SAM_CLIP_pipline.pipeline import annotate, crop_segment, mask_to_box, softmax
 from main import _find_images, _output_path
 
 
