@@ -20,7 +20,7 @@ BASE_URL = os.getenv("OPENAI_BASE_URL", "http://localhost:8000/v1")
 API_KEY = os.getenv("OPENAI_API_KEY", "token-not-needed")
 
 HERE = Path(__file__).resolve().parent
-IMAGE_DIR = os.getenv("IMAGE_DIR", str(HERE.parent / "Images"))
+IMAGE_DIR = os.getenv("IMAGE_DIR", str(HERE.parent / "01_Data" / "Example of Inventory" / "Images"))
 OUTPUT_DIR = Path(os.getenv("VLLM_OUTPUT_DIR", HERE / "vllm_output"))
 MODEL_NAME = os.getenv("OPENAI_MODEL", "Qwen/Qwen3-VL-32B-Instruct")
 MAX_IMAGE_SIDE = int(os.getenv("MAX_IMAGE_SIDE", "1568"))

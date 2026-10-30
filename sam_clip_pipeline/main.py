@@ -8,7 +8,7 @@ from pillow_heif import register_heif_opener
 from .pipeline import GroundedSegmenter, annotate
 
 ROOT = Path(__file__).resolve().parents[1]
-IMAGE_DIR = ROOT / "Images"
+IMAGE_DIR = ROOT / "01_Data" / "Example of Inventory" / "Images"
 IMAGE_SUFFIXES = {
     ".bmp", ".gif", ".heic", ".heif", ".jpeg", ".jpg", ".mpo", ".png",
     ".tif", ".tiff", ".webp",

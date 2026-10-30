@@ -8,7 +8,7 @@ sam_clip_pipeline/    Grounding DINO + SAM + CLIP package (main.py, cli.py, pipe
 scripts/              Helpers that generate reports and plots (make_report.py, make_detection_report.py, plot_bboxes.py)
 reports/              Generated .docx/.xlsx reports, bbox_images/, output_of_SAM_doors_windows/
 web/                  Floor-plan website (index.html, floor_plan_assets/), deployed by .github/workflows/pages.yml
-tests/  Images/  01_Data/  models/   Tests, survey photos, reference data, model weights
+01_Data/  models/   Survey photos (01_Data/Example of Inventory/Images/), reference data, model weights
 ```
 
 Run every command from the repository root. `Depth-Anything-V2/` lives next to this repo.
@@ -63,7 +63,7 @@ The end-to-end processing pipeline operates in three stages:
 
 ### Stage 1: Perception and semantic audit (`vllm_pipeline/vLLM.py`)
 
-- **Input:** RGB survey photographs from `Images/`.
+- **Input:** RGB survey photographs from `01_Data/Example of Inventory/Images/`.
 - **Model:** Local `Qwen/Qwen3-VL-32B-Instruct` exposed through an
   OpenAI-compatible vLLM endpoint on the Spark compute environment.
 - **Task:** The VLM reviews each scene using a Swiss circular-construction
@@ -172,7 +172,7 @@ export PYTHONPATH="/Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/
 
 python vllm_pipeline/supsi_kb_2.py \
   --vllm-dir vllm_pipeline/vllm_output \
-  --image-dir Images \
+  --image-dir "01_Data/Example of Inventory/Images" \
   --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
 ```
@@ -183,7 +183,7 @@ back to the VLM geometry for that component and continues. A single object can
 be measured on its own with:
 
 ```bash
-python vllm_pipeline/estimate_metric.py --image Images/<photo>.jpg --bbox YMIN XMIN YMAX XMAX \
+python vllm_pipeline/estimate_metric.py --image "01_Data/Example of Inventory/Images/<photo>.jpg" --bbox YMIN XMIN YMAX XMAX \
   --weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth
 ```
 
@@ -205,15 +205,15 @@ SAM segments each box. Labels and thresholds are constants at the top of
 `MIN_AREA`).
 
 ```bash
-python -m sam_clip_pipeline.main                      # every image in Images/ -> output/<name>.png
-python -m sam_clip_pipeline.main Images/photo.jpg     # one image
+python -m sam_clip_pipeline.main                      # every image in 01_Data/Example of Inventory/Images/ -> output/<name>.png
+python -m sam_clip_pipeline.main "01_Data/Example of Inventory/Images/photo.jpg"     # one image
 ```
 
 **B2. SAM + CLIP (`tracebale` CLI)** — SAM proposes masks over the whole image
 and CLIP assigns each one of your labels (zero-shot).
 
 ```bash
-python -m sam_clip_pipeline.cli Images/photo.jpg --labels "door,window,radiator" \
+python -m sam_clip_pipeline.cli "01_Data/Example of Inventory/Images/photo.jpg" --labels "door,window,radiator" \
   --out annotated.png --min-score 0.3 --min-area 500
 ```
 
@@ -255,7 +255,7 @@ OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vllm_pipeline/vLLM.py
 ```
 
 The image order is the case-insensitive sorted order of supported files in
-`Images/`. Requests have a five-minute default timeout and a timed
+`01_Data/Example of Inventory/Images/`. Requests have a five-minute default timeout and a timed
 out request stops the batch without overwriting its previous JSON report.
 
 ### 2. Measure metric dimensions and export the inventory
@@ -267,7 +267,7 @@ export PYTHONPATH="/Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/
 
 python vllm_pipeline/supsi_kb_2.py \
   --vllm-dir vllm_pipeline/vllm_output \
-  --image-dir Images \
+  --image-dir "01_Data/Example of Inventory/Images" \
   --depth-weights /Users/danuta.paraficz/PyProjects/Tracable/Depth-Anything-V2/metric_depth/checkpoints/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_new.xlsx
 ```
@@ -297,13 +297,13 @@ vLLM/metric-depth/SUPSI inventory workflow.
 
 ### Legacy AI example: doors and windows
 
-This example uses `Images/20260504_103344.jpg`. The current run offers the AI
+This example uses `01_Data/Example of Inventory/Images/20260504_103344.jpg`. The current run offers the AI
 only two labels, `door` and `window`, and saves its annotations to
 `output/20260504_103344.png`.
 
 | Input image | AI output (upscaled preview) |
 | --- | --- |
-| <img src="Images/20260504_103344.jpg" alt="Input photo of a room with windows and doors" width="50%"> | <img src="output/20260504_103344.png" alt="AI annotations using only door and window labels" width="1500"> |
+| <img src="01_Data/Example%20of%20Inventory/Images/20260504_103344.jpg" alt="Input photo of a room with windows and doors" width="50%"> | <img src="reports/output_of_SAM_doors_windows/20260504_103344.png" alt="AI annotations using only door and window labels" width="1500"> |
 
 The output preview is enlarged to the input image's 4000 × 2252 dimensions for
 display; recognition itself runs on a resized 1024 × 577 image.
@@ -382,7 +382,7 @@ path explicitly, but that class is not used by the default CLI or the public
 
 ## Run the included images
 
-Run `python -m sam_clip_pipeline.main` to process every supported image in `Images/`. Each
+Run `python -m sam_clip_pipeline.main` to process every supported image in `01_Data/Example of Inventory/Images/`. Each
 annotated result is saved to `output/` using the input image's filename and a
 `.png` extension. Pass an image path to process only that image; it uses the
 same filename-based output naming.
@@ -408,12 +408,12 @@ Tests: `pip install pytest numpy pillow && pytest` (pure-logic tests need no mod
 
 ## Qwen-VL / vLLM analysis
 
-`vllm_pipeline/vLLM.py` sends the photographs in `Images/` to an OpenAI-compatible local
+`vllm_pipeline/vLLM.py` sends the photographs in `01_Data/Example of Inventory/Images/` to an OpenAI-compatible local
 vLLM server running `Qwen/Qwen3-VL-32B-Instruct`. The server must be running
 before the batch script is started. By default the script uses:
 
 - API endpoint: `http://localhost:8000/v1`
-- Input directory: `Images/`
+- Input directory: `01_Data/Example of Inventory/Images/`
 - JSON output directory: `vllm_pipeline/vllm_output/`
 - Maximum image side: 1568 pixels
 - Maximum response length: 4000 tokens
@@ -460,7 +460,7 @@ OPENAI_START_INDEX=9 OPENAI_SKIP_EXISTING=0 python vllm_pipeline/vLLM.py
 ```
 
 The image order is the case-insensitive sorted order of supported files in
-`Images/`. A timeout prints `API_ERROR: Request timed out.` and stops the
+`01_Data/Example of Inventory/Images/`. A timeout prints `API_ERROR: Request timed out.` and stops the
 batch without overwriting the existing report for that image.
 
 ## SUPSI knowledge-base export
@@ -532,7 +532,7 @@ Run the extended export from the project parent directory:
 ```bash
 python vllm_pipeline/supsi_kb_2.py \
   --vllm-dir vllm_pipeline/vllm_output \
-  --image-dir Images \
+  --image-dir "01_Data/Example of Inventory/Images" \
   --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
 ```

@@ -13,9 +13,9 @@ from pillow_heif import register_heif_opener
 
 register_heif_opener()
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 REPORTS_DIR = ROOT / "reports"
-IMAGE_DIR = ROOT / "Images"
+IMAGE_DIR = ROOT / "01_Data" / "Example of Inventory" / "Images"
 RESULT_DIR = ROOT / "reports" / "output_of_SAM_doors_windows"
 REPORT_PATH = REPORTS_DIR / "detection_report.docx"
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".heic"}

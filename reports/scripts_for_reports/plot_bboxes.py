@@ -8,7 +8,7 @@ import matplotlib.patches as patches
 import pandas as pd
 from PIL import Image, ImageOps
 
-BASE = Path(__file__).resolve().parents[1]
+BASE = Path(__file__).resolve().parents[2]
 XLSX = BASE / "reports" / "TRACEABLE_Inventory_Qwen3.xlsx"
 IMAGE_DIR = BASE / "01_Data" / "Example of Inventory" / "Images"
 EXTS = [".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"]

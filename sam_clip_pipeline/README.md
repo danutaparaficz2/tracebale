@@ -32,12 +32,12 @@ python -m pip install torch torchvision transformers pillow pillow-heif numpy
 
 ## Run
 
-**DINO + SAM, batch** - every image in `Images/` is processed (resized to 1024 px)
+**DINO + SAM, batch** - every image in `01_Data/Example of Inventory/Images/` is processed (resized to 1024 px)
 and saved to `output/<name>.png`:
 
 ```bash
 python -m sam_clip_pipeline.main                   # all images
-python -m sam_clip_pipeline.main Images/photo.jpg  # one image
+python -m sam_clip_pipeline.main "01_Data/Example of Inventory/Images/photo.jpg"  # one image
 ```
 
 Labels and thresholds are constants at the top of `main.py` (`LABELS`,
@@ -46,7 +46,7 @@ Labels and thresholds are constants at the top of `main.py` (`LABELS`,
 **SAM + CLIP, single image** - prints JSON (label, score, box, area):
 
 ```bash
-python -m sam_clip_pipeline.cli Images/photo.jpg \
+python -m sam_clip_pipeline.cli "01_Data/Example of Inventory/Images/photo.jpg" \
   --labels "door,window,radiator" --out annotated.png \
   --min-score 0.3 --min-area 500
 ```

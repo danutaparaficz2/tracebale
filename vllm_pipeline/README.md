@@ -3,7 +3,7 @@
 Turns survey photographs into the TRACEABLE inventory workbook.
 
 ```text
-Images/*.jpg --vLLM.py--> vllm_output/*.json --supsi_kb_2.py--> Excel inventory
+01_Data/Example of Inventory/Images --vLLM.py--> vllm_output/*.json --supsi_kb_2.py--> Excel inventory
                                                    ^
                               estimate_metric.py (optional, Depth Anything V2)
 ```
@@ -28,14 +28,14 @@ python -m pip install openai requests pillow pillow-heif
 python vllm_pipeline/vLLM.py
 ```
 
-Images are read from `Images/` and reports written to `vllm_pipeline/vllm_output/`.
+Images are read from `01_Data/Example of Inventory/Images/` and reports written to `vllm_pipeline/vllm_output/`.
 Valid existing reports are skipped. Settings are environment variables:
 
 | Variable | Default | Meaning |
 | --- | --- | --- |
 | `OPENAI_BASE_URL` | `http://localhost:8000/v1` | vLLM endpoint |
 | `OPENAI_MODEL` | `Qwen/Qwen3-VL-32B-Instruct` | model name |
-| `IMAGE_DIR` / `VLLM_OUTPUT_DIR` | `Images/` / `vllm_output/` | input / output folders |
+| `IMAGE_DIR` / `VLLM_OUTPUT_DIR` | `01_Data/Example of Inventory/Images/` / `vllm_output/` | input / output folders |
 | `MAX_IMAGE_SIDE` | `1568` | long side images are downscaled to |
 | `OPENAI_MAX_TOKENS` | `4000` | response limit |
 | `OPENAI_REQUEST_TIMEOUT` | `300` | seconds per request |
@@ -71,7 +71,7 @@ python -m pip install open3d torch numpy
 export PYTHONPATH="$PWD/../Depth-Anything-V2/metric_depth:$PYTHONPATH"
 
 python vllm_pipeline/supsi_kb_2.py \
-  --image-dir Images \
+  --image-dir "01_Data/Example of Inventory/Images" \
   --depth-weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth \
   --export-excel TRACEABLE_Inventory_MetricDepth.xlsx
 ```
@@ -85,7 +85,7 @@ estimates (65 degree field-of-view assumed without EXIF focal length), not surve
 Measure one object directly:
 
 ```bash
-python vllm_pipeline/estimate_metric.py --image Images/<photo>.jpg \
+python vllm_pipeline/estimate_metric.py --image "01_Data/Example of Inventory/Images/<photo>.jpg" \
   --bbox YMIN XMIN YMAX XMAX --weights /path/to/depth_anything_v2_metric_hypersim_vitl.pth
 ```
 
